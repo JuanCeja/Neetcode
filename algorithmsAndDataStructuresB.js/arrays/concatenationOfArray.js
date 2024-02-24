@@ -21,7 +21,10 @@
 // - ans = [1,3,2,1,1,3,2,1]
 
 const concatenationOfArray = (nums) => {
-    
+    // make a copy
+    // iterate the array
+        // push the values of current element to end of copy array
+    // return copy array
 };
 
 console.log(concatenationOfArray([1, 3, 2, 1])); // [1,3,2,1,1,3,2,1]
