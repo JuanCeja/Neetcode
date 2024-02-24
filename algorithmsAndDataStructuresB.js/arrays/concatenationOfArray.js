@@ -20,12 +20,13 @@
 // - ans = [nums[0],nums[1],nums[2],nums[3],nums[0],nums[1],nums[2],nums[3]]
 // - ans = [1,3,2,1,1,3,2,1]
 
-const concatenationOfArray = (nums) => {
-    // make a copy
-    // iterate the array
-        // push the values of current element to end of copy array
-    // return copy array
+const getConcatenation = (nums) => {
+    let concatenatedArray = [...nums];
+    for (let num of nums) {
+        concatenatedArray.push(num);
+    }
+    return concatenatedArray;
 };
 
-console.log(concatenationOfArray([1, 3, 2, 1])); // [1,3,2,1,1,3,2,1]
-console.log(concatenationOfArray([1, 2, 1])); // [1,2,1,1,2,1]
+console.log(getConcatenation([1, 3, 2, 1])); // [1,3,2,1,1,3,2,1]
+console.log(getConcatenation([1, 2, 1])); // [1,2,1,1,2,1]
