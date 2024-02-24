@@ -52,7 +52,15 @@
 // Since the record is empty, the total sum is 0.
 
 const calPoints = (operations) => {
-
+    // a score var
+    // score array
+    // iterating the array
+        // check if current is C, D, or +
+        // else ill add the value score and push it to scores array
+    // set score to 0
+    // iterate scores array
+        // add all values to score
+    // return score
 };
 
 console.log(calPoints(["5","2","C","D","+"])); // 30
