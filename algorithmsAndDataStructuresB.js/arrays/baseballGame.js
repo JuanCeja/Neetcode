@@ -52,17 +52,30 @@
 // Since the record is empty, the total sum is 0.
 
 const calPoints = (operations) => {
-    // a score var
-    // score array
-    // iterating the array
-        // check if current is C, D, or +
-        // else ill add the value score and push it to scores array
-    // set score to 0
-    // iterate scores array
-        // add all values to score
-    // return score
+    let scoresArray = [];
+    let finalScore = 0;
+
+    for (let operation of operations) {
+        if (operation === "C") {
+            scoresArray.pop();
+        } else if (operation === "D") {
+            let doubledScore = scoresArray[scoresArray.length - 1] * 2;
+            scoresArray.push(doubledScore);
+        } else if (operation === "+") {
+            let prevTwoScores = scoresArray[scoresArray.length - 1] + scoresArray[scoresArray.length - 2]
+            scoresArray.push(prevTwoScores)
+        } else {
+            scoresArray.push(parseInt(operation));
+        }
+    }
+
+    for (let score of scoresArray) {
+        finalScore += score;
+    }
+    
+    return finalScore;
 };
 
-console.log(calPoints(["5","2","C","D","+"])); // 30
-console.log(calPoints(["5","-2","4","C","D","9","+","+"])); // 27
-console.log(calPoints(["1","C"])); // 0
+console.log(calPoints(["5", "2", "C", "D", "+"])); // 30
+console.log(calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"])); // 27
+console.log(calPoints(["1", "C"])); // 0
