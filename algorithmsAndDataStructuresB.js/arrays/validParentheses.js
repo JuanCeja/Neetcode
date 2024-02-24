@@ -19,7 +19,19 @@
 // Output: false
 
 const isValid = (s) => {
-    
+    for (let i = 0; i < s.length; i + 2) {
+        if (s[i] === ")") {
+            if (s[i - 1] !== "(") return false;
+        }
+        if (s[i] === "}") {
+            if (s[i - 1] !== "{") return false;
+        }
+        if (s[i] === "]") {
+            if (s[i - 1] !== "[") return false;
+        }
+    }
+
+    return true;
 };
 
 console.log(isValid("()")); // true
