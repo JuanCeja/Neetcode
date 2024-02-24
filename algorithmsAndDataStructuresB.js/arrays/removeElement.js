@@ -22,7 +22,12 @@
 // It does not matter what you leave beyond the returned k (hence they are underscores).
 
 const removeElement = (nums, val) => {
-
+    // our pointer
+    // iterate nums
+        // if nums[i] != val
+            // we swap with k
+            // move k up
+    // return k
 };
 
 console.log(removeElement([0,1,2,2,3,0,4,2]), 2); // 5, nums = [0,1,4,0,3,_,_,_]
