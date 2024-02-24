@@ -19,21 +19,13 @@
 // Output: false
 
 const isValid = (s) => {
-    for (let i = 0; i < s.length; i + 2) {
-        if (s[i] === ")") {
-            if (s[i - 1] !== "(") return false;
-        }
-        if (s[i] === "}") {
-            if (s[i - 1] !== "{") return false;
-        }
-        if (s[i] === "]") {
-            if (s[i - 1] !== "[") return false;
-        }
-    }
-
-    return true;
+    // stack
+    // iterate through s
+        // if s is a (, [, { push the opposite
+        // if s is a ], ), } pop
+        // return if the array has a length
 };
 
-console.log(isValid("()")); // true
 console.log(isValid("()[]{}")); // true
+console.log(isValid("()")); // true
 console.log(isValid("(]")); // false
