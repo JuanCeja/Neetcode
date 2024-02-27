@@ -19,23 +19,23 @@
 // Output: false
 
 const isValid = (s) => {
-    let obj = {
-        "]": "[",
-        "}": "{",
-        ")": "("
-    };
-    let stack = [];
-    for (let bracket of s) {
-        if (bracket === "[" || bracket === "(" || bracket === "{") {
-            stack.push(bracket);
-        } else if (bracket === "]" || bracket === ")" || bracket === "}") {
-            if (obj[bracket] !== stack[stack.length - 1]) return false;
-            else stack.pop();
-        }
-
+    const openingBrackets = {
+        "[": "]",
+        "(": ")",
+        "{": "}"
     }
-    return !stack.length ? true : false;
 
+    const stack = [];
+
+    for (let bracket of s) {
+        if (openingBrackets[bracket]) {
+            stack.push(bracket);
+        } else {
+            const lastOpeningBracket = stack.pop();
+            if (openingBrackets[lastOpeningBracket] !== bracket) return false;
+        }
+    }
+    return stack.length === 0;
 };
 
 console.log(isValid("()[]{}")); // true
