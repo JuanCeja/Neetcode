@@ -19,15 +19,23 @@
 // Output: false
 
 const isValid = (s) => {
-    // create map with closing tags as keys and opening as values
-    // create our stack
-    // iterate our string
-        // if we encounter a open tag push it to stack
-        // if we encounter a closing tag
-            // check if the top of the stack matches it. if it does pop it
-            // else return false
-    // return true
-        
+    let obj = {
+        "]": "[",
+        "}": "{",
+        ")": "("
+    };
+    let stack = [];
+    for (let bracket of s) {
+        if (bracket === "[" || bracket === "(" || bracket === "{") {
+            stack.push(bracket);
+        } else if (bracket === "]" || bracket === ")" || bracket === "}") {
+            if (obj[bracket] !== stack[stack.length - 1]) return false;
+            else stack.pop();
+        }
+
+    }
+    return !stack.length ? true : false;
+
 };
 
 console.log(isValid("()[]{}")); // true
