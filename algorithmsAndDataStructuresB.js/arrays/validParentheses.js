@@ -25,17 +25,17 @@ const isValid = (s) => {
         "{": "}"
     }
 
-    const stack = [];
+    const openBracketsStack = [];
 
     for (let bracket of s) {
         if (openingBrackets[bracket]) {
-            stack.push(bracket);
+            openBracketsStack.push(bracket);
         } else {
-            const lastOpeningBracket = stack.pop();
+            const lastOpeningBracket = openBracketsStack.pop();
             if (openingBrackets[lastOpeningBracket] !== bracket) return false;
         }
     }
-    return stack.length === 0;
+    return openBracketsStack.length === 0;
 };
 
 console.log(isValid("()[]{}")); // true
