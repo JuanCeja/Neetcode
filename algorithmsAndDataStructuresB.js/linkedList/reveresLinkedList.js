@@ -12,10 +12,19 @@ class LinkedList {
     }
 
     reverse() {
-        // start at our root
-        // create a current and next
+        let current = this.head;
+        this.head = this.tail;
+        this.tail = current;
+        let next = current.next;
+        let pointer = next.next;
         // iterate the linkedList
+        while (pointer.next !== null) {
             // as we iterate we point the next to our current
+            next.next = current;
+            current = next;
+            next = current.next;
+            pointer = next.next;
+        }
         // return our linked list
     }
 }
