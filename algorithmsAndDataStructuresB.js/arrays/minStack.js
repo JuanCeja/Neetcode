@@ -48,15 +48,18 @@ class MinStack {
     };
 
     pop() {
-
+        this.stack.pop();
+        this.minStack.pop();
     };
 
     intTop() {
-
+        let topValue = this.stack.length - 1;
+        return this.stack[topValue];
     };
 
     intGetMin() {
-
+        let minValue = this.minStack.length - 1;
+        return this.minStack[minValue];
     };
 }
 
