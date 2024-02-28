@@ -12,6 +12,10 @@ class LinkedList {
     }
 
     reverse() {
-        
+        // start at our root
+        // create a current and next
+        // iterate the linkedList
+            // as we iterate we point the next to our current
+        // return our linked list
     }
 }
