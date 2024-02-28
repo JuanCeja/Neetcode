@@ -35,12 +35,12 @@ class MinStack {
     };
 
     minStack() {
-
+        return this;
     };
 
     push(val) {
         let length = this.minStack.length;
-        let min = this.minStack[length - 1];
+        let min = Math.min(this.minStack[length - 1], val);
         this.stack.push(val);
         if (!this.minStack.length) this.minStack.push(val);
         else if (val <= min) this.minStack.push(val);
@@ -52,12 +52,12 @@ class MinStack {
         this.minStack.pop();
     };
 
-    intTop() {
+    top() {
         let topValue = this.stack.length - 1;
         return this.stack[topValue];
     };
 
-    intGetMin() {
+    getMin() {
         let minValue = this.minStack.length - 1;
         return this.minStack[minValue];
     };
