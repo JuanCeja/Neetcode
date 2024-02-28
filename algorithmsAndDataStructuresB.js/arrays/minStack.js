@@ -41,10 +41,10 @@ class MinStack {
     push(val) {
         let length = this.minStack.length;
         let min = this.minStack[length - 1];
-        // push our value to our stack
-        // if the minStack is empty push the value
-        // else if our valley is smaller than the last valley in minStack we just our value
-        // else push the same value at the end of the array into minStack again
+        this.stack.push(val);
+        if (!this.minStack.length) this.minStack.push(val);
+        else if (val <= min) this.minStack.push(val);
+        else this.minStack.push(min);
     };
 
     pop() {
