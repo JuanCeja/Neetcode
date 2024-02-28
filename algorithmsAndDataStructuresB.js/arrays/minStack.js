@@ -40,8 +40,9 @@ class MinStack {
 
     push(val) {
         let length = this.minStack.length;
-        let min = Math.min(this.minStack[length - 1], val);
+        let min = (this.minStack[length - 1]);
         this.stack.push(val);
+        
         if (!this.minStack.length) this.minStack.push(val);
         else if (val <= min) this.minStack.push(val);
         else this.minStack.push(min);
