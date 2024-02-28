@@ -28,8 +28,43 @@
 // minStack.top();    // return 0
 // minStack.getMin(); // return -2
 
-const minStack = (arr) => {
-    
-};
+class MinStack {
+    constructor() {
+        this.stack = [];
+        this.minStack = [];
+    };
 
-console.log(minStack(["MinStack","push","push","push","getMin","pop","top","getMin"])); // 
+    minStack() {
+
+    };
+
+    push(val) {
+        let length = this.minStack.length;
+        let min = this.minStack[length - 1];
+        // push our value to our stack
+        // if the minStack is empty push the value
+        // else if our valley is smaller than the last valley in minStack we just our value
+        // else push the same value at the end of the array into minStack again
+    };
+
+    pop() {
+
+    };
+
+    intTop() {
+
+    };
+
+    intGetMin() {
+
+    };
+}
+
+let minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+console.log(minStack.getMin()); // return -3
+minStack.pop();
+console.log(minStack.top());    // return 0
+console.log(minStack.getMin()); // return -2
