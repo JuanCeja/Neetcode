@@ -12,12 +12,18 @@ class LinkedList {
     }
 
     reverse() {
-        // create before current and after
-        // iterate our linkedlist
-            // point our current to before
-            // before = current
-            // current = next
-        // return this
+        let current = this.head;
+        let prev = null;
+        let next = current ? current.next : null;
+        this.tail = current
+        while (current) {
+            current.next = prev;
+            prev = current;
+            current = next;
+            next = current.next;
+        }
+        this.head = prev;
+        return this;
     }
 
     reverseRecursive() {
