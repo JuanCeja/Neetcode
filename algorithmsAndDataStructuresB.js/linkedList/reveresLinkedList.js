@@ -31,15 +31,15 @@ class LinkedList {
         let p1 = list1.head;
         let p2 = list2.head;
 
-        if (p1 === p2) {
+        if (p1.val === p2.val) {
             current = p1;
             p1 = p1.next;
-        } else {
-            current = Math.min(p1, p2);
-        }
+        } else if (p1.val < p2.val) {
+            current = p1;
+        } else current = p2;
 
         while (p1 && p2) {
-            if (p1 < p2) {
+            if (p1.val < p2.val) {
                 current.next = p1;
                 current = p1;
                 p1 = p1.next;
@@ -49,7 +49,10 @@ class LinkedList {
                 p2 = p2.next;
             }
         }
-        
+
+        if (p1) current.next = p1;
+        if (p2) current.next = p2;
+
         return this;
     };
 }
