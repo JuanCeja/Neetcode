@@ -27,8 +27,8 @@ class LinkedList {
     };
 
     mergeTwoSortedLists(list1, list2) {
-        let dummyHead = new LinkedList();
-        let current = dummyHead.head;
+        let dummyHead = new ListNode();
+        let current = dummyHead;
         let p1 = list1.head;
         let p2 = list2.head;
 
@@ -43,9 +43,8 @@ class LinkedList {
             current = current.next;
         };
 
-        if (p1) current.next = p1;
-        else current.next = p2;
+        current.next = p1 || p2;
 
-        return dummyHead;
+        return new LinkedList(dummyHead.next);
     };
 }
