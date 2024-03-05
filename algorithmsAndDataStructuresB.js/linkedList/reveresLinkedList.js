@@ -12,30 +12,20 @@ class LinkedList {
     }
 
     reverse() {
-        let current = this.head;
-        let prev = null;
-        let nxt;
-        let newTail = this.head;
-
-        while (current) {
-            nxt = current.next;
-            current.next = prev;
-            prev = current;
-            current = nxt;
-        }
-
-        this.head = prev;
-        this.tail = newTail;
-        return this;
+        // create before current and after
+        // iterate our linkedlist
+            // point our current to before
+            // before = current
+            // current = next
+        // return this
     }
 
     reverseRecursive() {
-        var reverseList = function(head) {
-            // Special case...
-            // Create a new node to call the function recursively and we get the reverse linked list...
-            // Set head node as head.next.next...
-            //set head's next to be null...
-             // Return the reverse linked list...
-        };
+        // Special case...
+        // Create a new node to call the function recursively and we get the reverse linked list...
+        // Set head node as head.next.next...
+        //set head's next to be null...
+        // Return the reverse linked list...
+
     }
 }
