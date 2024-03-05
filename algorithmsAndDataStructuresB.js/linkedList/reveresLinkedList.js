@@ -27,32 +27,25 @@ class LinkedList {
     };
 
     mergeTwoSortedLists(list1, list2) {
-        let current;
+        let dummyHead = new LinkedList();
+        let current = dummyHead.head;
         let p1 = list1.head;
         let p2 = list2.head;
-
-        if (p1.val === p2.val) {
-            current = p1;
-            p1 = p1.next;
-        } else if (p1.val < p2.val) {
-            current = p1;
-        } else current = p2;
 
         while (p1 && p2) {
             if (p1.val < p2.val) {
                 current.next = p1;
-                current = p1;
                 p1 = p1.next;
             } else {
                 current.next = p2;
-                current = p2;
                 p2 = p2.next;
-            }
-        }
+            };
+            current = current.next;
+        };
 
         if (p1) current.next = p1;
-        if (p2) current.next = p2;
+        else current.next = p2;
 
-        return this;
+        return dummyHead;
     };
 }
