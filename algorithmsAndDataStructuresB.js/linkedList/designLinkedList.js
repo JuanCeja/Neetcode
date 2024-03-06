@@ -50,6 +50,8 @@ class MyLinkedList {
     }
 
     addAtTail(val) {
-        
+        let newNode = new Node(val);
+        this.tail.next = newNode;
+        this.tail = newNode;
     }
 }
