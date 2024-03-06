@@ -29,4 +29,8 @@ class MyLinkedList {
         this.tail = null;
         this.length = 0;
     }
+
+    get(index) {
+        
+    }
 }
