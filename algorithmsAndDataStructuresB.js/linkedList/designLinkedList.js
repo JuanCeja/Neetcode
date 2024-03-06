@@ -35,8 +35,8 @@ class MyLinkedList {
 
         let counter = 0;
         let current = this.head;
-        while(current) {
-            if(counter === index) return current.val;
+        while (current) {
+            if (counter === index) return current.val;
             current = current.next;
             counter++;
         }
@@ -55,5 +55,24 @@ class MyLinkedList {
         this.tail = newNode;
     }
 
-    
+    addAtIndex(index, val) {
+        if (index === this.length) this.addAtTail(val);
+        else if (index > this.length) return;
+
+        let newNode = new Node(val);
+
+        let target = index - 1;
+        let counter = 0;
+        let current = this.head;
+        while (current) {
+            current = current.next;
+            counter++;
+            if (counter === target) {
+                newNode.next = current.next.next;
+                current.next = newNode;
+                return this;
+            }
+        }
+        return this;
+    }
 }
