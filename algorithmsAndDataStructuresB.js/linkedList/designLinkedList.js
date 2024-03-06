@@ -48,4 +48,8 @@ class MyLinkedList {
         this.head = newNode;
         return this;
     }
+
+    addAtTail(val) {
+        
+    }
 }
