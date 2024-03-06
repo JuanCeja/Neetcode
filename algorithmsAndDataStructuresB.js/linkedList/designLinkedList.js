@@ -31,6 +31,14 @@ class MyLinkedList {
     }
 
     get(index) {
-        
+        if (index > this.length) return -1;
+
+        let counter = 0;
+        let current = this.head;
+        while(current) {
+            if(counter === index) return current.val;
+            current = current.next;
+            counter++;
+        }
     }
 }
