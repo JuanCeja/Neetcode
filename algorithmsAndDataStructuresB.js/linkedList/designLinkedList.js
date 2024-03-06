@@ -41,4 +41,11 @@ class MyLinkedList {
             counter++;
         }
     }
+
+    addAtHead(val) {
+        let newNode = new Node(val);
+        newNode.next = this.head;
+        this.head = newNode;
+        return this;
+    }
 }
