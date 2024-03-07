@@ -44,7 +44,12 @@ class BrowserHistory {
     }
 
     forward(steps) {
-
+        let amountOfSteps = steps;
+        while(steps !== 0) {
+            this.currentPage = this.currentPage.next;
+            amountOfSteps--;
+        }
+        return this.currentPage;
     }
 }
 
