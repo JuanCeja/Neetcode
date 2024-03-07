@@ -10,9 +10,9 @@
 
 // string forward(int steps) Move steps forward in history. If you can only forward x steps in the history and steps > x, you will forward only x steps. Return the current url after forwarding in history at most steps.
 
-class Webpage {
-    constructor(url) {
-        this.url = url;
+class ListNode {
+    constructor(val) {
+        this.val = val;
         this.next = null;
         this.prev = null;
     }
@@ -20,36 +20,31 @@ class Webpage {
 
 class BrowserHistory {
     constructor() {
-        this.start = null;
-        this.end = null;
-        this.currentPage = null;
-        this.length = 0;
+        this.currentPage = new ListNode('homepage');
     }
 
     visit(url) {
-        const newPage = new Webpage(url);
+        const newPage = new ListNode(url);
         this.currentPage.next = newPage;
-        this.currentPage.next.prev = null;
+        newPage.prev = this.currentPage;
+        this.currentPage = this.currentPage.next;
         return;
     }
 
     back(steps) {
-        let amountOfSteps = steps;
-        while(steps !== 0) {
+        while (this.currentPage.prev && steps > 0) {
             this.currentPage = this.currentPage.prev;
-            amountOfSteps--;
+            steps--;
         }
-        return this.currentPage;
-
+        return this.currentPage.val;
     }
 
     forward(steps) {
-        let amountOfSteps = steps;
-        while(steps !== 0) {
+        while (this.currentPage.next && steps >= 0) {
             this.currentPage = this.currentPage.next;
-            amountOfSteps--;
+            steps--;
         }
-        return this.currentPage;
+        return this.currentPage.val;
     }
 }
 
