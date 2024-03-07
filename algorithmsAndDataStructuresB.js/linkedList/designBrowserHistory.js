@@ -10,21 +10,36 @@
 
 // string forward(int steps) Move steps forward in history. If you can only forward x steps in the history and steps > x, you will forward only x steps. Return the current url after forwarding in history at most steps.
 
+class Webpage {
+    constructor(url) {
+        this.url = url;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
 class BrowserHistory {
     constructor() {
-        this.history = ['homepage'];
-        this.location = { 'homepage': 0 };
+        this.start = null;
+        this.end = null;
         this.currentPage = null;
+        this.length = 0;
     }
 
     visit(url) {
-        if (this.location[url]) {
-            this.history.splice(this.location[url]);
-            return this;
-        } else return;
+        const newPage = new Webpage(url);
+        this.currentPage.next = newPage;
+        this.currentPage.next.prev = null;
+        return;
     }
 
     back(steps) {
+        let amountOfSteps = steps;
+        while(steps !== 0) {
+            this.currentPage = this.currentPage.prev;
+            amountOfSteps--;
+        }
+        return this.currentPage;
 
     }
 
@@ -33,4 +48,6 @@ class BrowserHistory {
     }
 }
 
-const myBrowsingHistory = new BrowserHistory()
+const myBrowsingHistory = new BrowserHistory(["BrowserHistory", "visit", "visit", "visit", "back", "back", "forward", "visit", "forward", "back", "back"]
+[["leetcode.com"], ["google.com"], ["facebook.com"], ["youtube.com"], [1], [1], [1], ["linkedin.com"], [2], [2], [7]]);
+
