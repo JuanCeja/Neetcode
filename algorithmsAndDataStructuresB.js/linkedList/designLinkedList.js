@@ -20,6 +20,7 @@ class Node {
     constructor(val) {
         this.val = val;
         this.next = null;
+        this.prev = null;
     }
 }
 
@@ -48,6 +49,7 @@ class MyLinkedList {
             this.head = newNode;
             this.tail = newNode;
         } else {
+            this.head.prev = newNode;
             newNode.next = this.head;
             this.head = newNode;
         }
@@ -61,6 +63,7 @@ class MyLinkedList {
             this.head = newNode;
             this.tail = newNode;
         } else {
+            newNode.prev = this.tail;
             this.tail.next = newNode;
             this.tail = newNode;
         };
@@ -85,6 +88,7 @@ class MyLinkedList {
         }
         
         newNode.next = current;
+        newNode.prev = prevNode;
         prevNode.next = newNode;
         this.length++;
         return this;
