@@ -12,12 +12,16 @@
 
 class BrowserHistory {
     constructor() {
-        this.history = [];
+        this.history = ['homepage'];
+        this.location = { 'homepage': 0 };
         this.currentPage = null;
     }
 
     visit(url) {
-
+        if (this.location[url]) {
+            this.history.splice(this.location[url]);
+            return this;
+        } else return;
     }
 
     back(steps) {
@@ -28,3 +32,5 @@ class BrowserHistory {
 
     }
 }
+
+const myBrowsingHistory = new BrowserHistory()
