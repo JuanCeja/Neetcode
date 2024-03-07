@@ -93,4 +93,15 @@ class MyLinkedList {
         this.length++;
         return this;
     }
+
+    deleteAtIndex(index) {
+        // counter = index;
+        // if index > length or < 0 return false
+        // iterate our linked list. while linked list is >= 0
+            // move current up
+            // remove from counter
+        // make our deletion here
+        // reduce our length
+        // return our list
+    }
 }
