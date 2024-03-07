@@ -98,9 +98,10 @@ class MyLinkedList {
         let counter = index;
         let current = this.head;
 
-        if (index > this.length || index < 0) return false;
+        if (index >= this.length || index < 0) return false;
+        if (index === 0) return null;
 
-        while (counter >= 0) {
+        while (counter > 0) {
             current = current.next;
             counter--;
         }
@@ -113,7 +114,7 @@ class MyLinkedList {
         current.next = null;
         current.prev = null;
         this.length--;
-        
+
         return this;
     }
 }
