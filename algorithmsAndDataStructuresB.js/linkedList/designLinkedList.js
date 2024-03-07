@@ -32,25 +32,25 @@ class MyLinkedList {
     }
 
     get(index) {
-        if (index >= this.length) return -1;
+        if (index < 0 || index >= this.length) return -1;
 
-        let counter = 0;
         let current = this.head;
-        while (current) {
-            if (counter === index) return current.val;
+        let counter = 0;
+        while (current !== index) {
             current = current.next;
             counter++;
         }
+        return current.val;
     }
 
     addAtHead(val) {
-        let newNode = new Node(val);
-        if (!this.head) {
+        const newNode = new Node(val);
+        if (!this.length) {
             this.head = newNode;
             this.tail = newNode;
         } else {
-            this.head.prev = newNode;
             newNode.next = this.head;
+            this.head.prev = newNode;
             this.head = newNode;
         }
         this.length++;
@@ -58,8 +58,8 @@ class MyLinkedList {
     }
 
     addAtTail(val) {
-        let newNode = new Node(val);
-        if (!this.head) {
+        const newNode = new Node(val);
+        if (!this.length) {
             this.head = newNode;
             this.tail = newNode;
         } else {
@@ -72,26 +72,30 @@ class MyLinkedList {
     }
 
     addAtIndex(index, val) {
+        if (index < 0 || index > this.length) return;
         if (index === 0) return this.addAtHead(val);
-        if (index === this.length) return this.addAtTail(val);
-        if (index > this.length) return;
 
-        let newNode = new Node(val);
-        let prevNode = null;
-        let current = this.head;
-        let counter = 0;
+        if (index === 0) {
+            this.addAtHead(val);
+        } else if(index === this.length) {
+            this.addAtTail(val);
+        } else {
+            const newNode = new Node(val);
+            let counter = 0;
+            let current = this.head;
 
-        while (counter < index) {
-            prevNode = current;
-            current = current.next;
-            counter++;
+            while (counter !== index) {
+                current = current.next;
+                counter++;
+            }
+
+            newNode.prev = current.prev;
+            newNode.next = current;
+            current.prev.next = newNode;
+            current.prev = newNode;
+            this.length++;
+            return this;
         }
-
-        newNode.next = current;
-        newNode.prev = prevNode;
-        prevNode.next = newNode;
-        this.length++;
-        return this;
     }
 
     deleteAtIndex(index) {
