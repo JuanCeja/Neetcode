@@ -86,7 +86,7 @@ class MyLinkedList {
             current = current.next;
             counter++;
         }
-        
+
         newNode.next = current;
         newNode.prev = prevNode;
         prevNode.next = newNode;
@@ -95,13 +95,25 @@ class MyLinkedList {
     }
 
     deleteAtIndex(index) {
-        // counter = index;
-        // if index > length or < 0 return false
-        // iterate our linked list. while linked list is >= 0
-            // move current up
-            // remove from counter
-        // make our deletion here
-        // reduce our length
-        // return our list
+        let counter = index;
+        let current = this.head;
+
+        if (index > this.length || index < 0) return false;
+
+        while (counter >= 0) {
+            current = current.next;
+            counter--;
+        }
+
+        let prevNode = current.prev;
+        let nextNode = current.next;
+
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
+        current.next = null;
+        current.prev = null;
+        this.length--;
+        
+        return this;
     }
 }
