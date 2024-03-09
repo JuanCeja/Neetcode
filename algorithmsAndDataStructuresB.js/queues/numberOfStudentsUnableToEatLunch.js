@@ -29,17 +29,71 @@
 // Input: students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
 // Output: 3
 
-const countStudents = (students, sandwiches) => {
-    while (students.length && sandwiches.length) {
-        if (students[0] === sandwiches[0]) {
-            students.shift();
-            sandwiches.shift();
-        } else {
-            let lastStudent = students.shift();
-            students.push(lastStudent);
-        };
+class QueueNode {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
     }
-    return students.length;
+}
+
+class Queue {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    enqueue(data) {
+        let newNode = new QueueNode(data);
+
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+    }
+
+    dequeue() {
+        if (!this.head) return null;
+        let oldHead = this.head;
+        this.head = oldHead.next;
+        oldHead.next = null;
+        return oldHead;
+    }
+
+    lengthOfStudents() {
+        if (!this.head) return 0;
+
+        let counter = 1;
+        let current = this.head;
+
+        while(current) {
+            current = current.next;
+            counter++;
+        }
+
+        return counter;
+    }
+}
+
+const countStudents = (students, sandwiches) => {
+    let studentsQueue = new Queue();
+    let length = sandwiches.length - 1;
+
+    students.forEach(student => {
+        studentsQueue.enqueue(student);
+    });
+
+    if (studentsQueue.head.data === sandwiches[length]) {
+        studentsQueue.dequeue();
+        sandwiches.pop()
+    } else {
+        let lastStudent = studentsQueue.dequeue();
+        studentsQueue.enqueue(lastStudent);
+    }
+    
+    return studentsQueue.lengthOfStudents();
 };
 
 console.log(countStudents([1, 1, 0, 0], [0, 1, 0, 1])); // 0
