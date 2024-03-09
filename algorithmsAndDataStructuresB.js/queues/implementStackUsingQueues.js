@@ -11,6 +11,7 @@
 class StackNode {
     constructor(data) {
         this.data = data;
+        this.next = null;
     }
 }
 
@@ -22,18 +23,34 @@ class MyStack {
     }
 
     push(data) {
+        let newTop = new StackNode(data);
 
+        if (!this.top) {
+            this.top = newTop;
+            this.bottom = newTop;
+        } else {
+            newTop.next = this.top;
+            this.top = newTop;
+        }
+        this.size++;
     }
 
     pop() {
+        if(!this.top) return null;
 
+        let oldTop = this.top;
+        this.top = this.top.next;
+        oldTop.next = null;
+        this.size--;
+        return oldTop.data;
     }
 
-    top() {
-
+    getTop() {
+        if(!this.top) return null;
+        else return this.top;
     }
 
     empty() {
-        
+        return this.size === 0;
     }
 }
