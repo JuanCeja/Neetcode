@@ -29,8 +29,14 @@
 // Input: students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
 // Output: 3
 
-const countStudents = (students, sandwhiches) => {
-
+const countStudents = (students, sandwiches) => {
+    // while students && sandwiches
+        // if stud[0] === sand[0]
+            // shift from both
+        // else
+            // shift from students
+            // push to end
+    // return students.length
 };
 
 console.log(countStudents([1,1,0,0], [0,1,0,1])); // 0
