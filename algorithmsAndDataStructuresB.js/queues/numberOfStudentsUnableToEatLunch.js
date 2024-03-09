@@ -44,23 +44,24 @@ class Queue {
     }
 
     enqueue(data) {
-        if (this.tail === null) this.tail = newNode;
-
         let newNode = new QueueNode(data);
-        this.tail.next = newNode;
-        this.tail = newNode;
+
+        if (this.tail === null) this.head = this.tail = newNode;
+        else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
         this.size++;
     }
 
     dequeue() {
-        if (this.head === null) return null;
+        if (this.isEmpty()) return null;
 
-        let oldHead = this.head;
-        if (oldHead.next === null) this.head = null;
-        this.head = oldHead.next;
-        oldHead.next = null;
+        let removedHead = this.head;
+        this.head = removedHead.next;
+        if (this.head === null) this.tail = null;
         this.size--;
-        return oldHead;
+        return removedHead.data;
     }
 
     isEmpty() {
@@ -68,7 +69,7 @@ class Queue {
     }
 
     peek() {
-        if (this.isEmpty()) return 0;
+        if (this.isEmpty()) return null;
         else return this.head.data;
     }
 
@@ -78,7 +79,30 @@ class Queue {
 }
 
 const countStudents = (students, sandwiches) => {
+    const len = students.length - 1;
+    const studentsQueue = new Queue();
+    const foodStack = new Array();
 
+    for(let i = 0; i < len; i++) {
+        studentsQueue.enqueue(students[i]);
+        foodStack.push(sandwiches[len - 1 - i]);
+    }
+
+    let counter = 0;
+
+    while(counter < foodStack.length) {
+        if(studentsQueue.peek() === foodStack[len - 1]) {
+            studentsQueue.dequeue();
+            foodStack.pop();
+            counter = 0;
+        } else {
+            let dequeuedStudent = studentsQueue.dequeue();
+            studentsQueue.enqueue(dequeuedStudent);
+            counter++;
+        }
+    }
+
+    return counter;
 };
 
 console.log(countStudents([1, 1, 0, 0], [0, 1, 0, 1])); // 0
