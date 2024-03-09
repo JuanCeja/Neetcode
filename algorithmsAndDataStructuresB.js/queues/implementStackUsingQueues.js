@@ -7,6 +7,33 @@
 // int top() Returns the element on the top of the stack.
 // boolean empty() Returns true if the stack is empty, false otherwise.
 
-const myStack = () => {
 
+class StackNode {
+    constructor(data) {
+        this.data = data;
+    }
+}
+
+class MyStack {
+    constructor() {
+        this.top = null;
+        this.bottom = null;
+        this.size = 0;
+    }
+
+    push(data) {
+
+    }
+
+    pop() {
+
+    }
+
+    top() {
+
+    }
+
+    empty() {
+        
+    }
 }
