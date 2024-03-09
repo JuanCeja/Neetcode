@@ -58,8 +58,10 @@ class Queue {
         if (this.isEmpty()) return null;
 
         let removedHead = this.head;
-        this.head = removedHead.next;
+        this.head = this.head.next;
+
         if (this.head === null) this.tail = null;
+
         this.size--;
         return removedHead.data;
     }
@@ -70,7 +72,7 @@ class Queue {
 
     peek() {
         if (this.isEmpty()) return null;
-        else return this.head.data;
+        return this.head.data;
     }
 
     getSize() {
@@ -79,7 +81,7 @@ class Queue {
 }
 
 const countStudents = (students, sandwiches) => {
-    const len = students.length - 1;
+    const len = students.length;
     const studentsQueue = new Queue();
     const foodStack = new Array();
 
@@ -91,7 +93,7 @@ const countStudents = (students, sandwiches) => {
     let counter = 0;
 
     while(counter < foodStack.length) {
-        if(studentsQueue.peek() === foodStack[len - 1]) {
+        if(studentsQueue.peek() === foodStack[foodStack.length - 1]) {
             studentsQueue.dequeue();
             foodStack.pop();
             counter = 0;
