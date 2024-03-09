@@ -44,23 +44,41 @@ class Queue {
     }
 
     enqueue(data) {
+        if (this.tail === null) this.tail = newNode;
+
+        let newNode = new QueueNode(data);
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.size++;
     }
 
     dequeue() {
+        if (this.head === null) return null;
+
+        let oldHead = this.head;
+        if (oldHead.next === null) this.head = null;
+        this.head = oldHead.next;
+        oldHead.next = null;
+        this.size--;
+        return oldHead;
     }
 
     isEmpty() {
+        return this.size === 0;
     }
 
     peek() {
+        if (this.isEmpty()) return 0;
+        else return this.head.data;
     }
 
     getSize() {
+        return this.size;
     }
 }
 
 const countStudents = (students, sandwiches) => {
-    
+
 };
 
 console.log(countStudents([1, 1, 0, 0], [0, 1, 0, 1])); // 0
