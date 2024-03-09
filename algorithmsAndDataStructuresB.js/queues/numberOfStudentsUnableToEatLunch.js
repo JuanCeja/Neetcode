@@ -30,14 +30,17 @@
 // Output: 3
 
 const countStudents = (students, sandwiches) => {
-    // while students && sandwiches
-        // if stud[0] === sand[0]
-            // shift from both
-        // else
-            // shift from students
-            // push to end
-    // return students.length
+    while (students.length && sandwiches.length) {
+        if (students[0] === sandwiches[0]) {
+            students.shift();
+            sandwiches.shift();
+        } else {
+            let lastStudent = students.shift();
+            students.push(lastStudent);
+        };
+    }
+    return students.length;
 };
 
-console.log(countStudents([1,1,0,0], [0,1,0,1])); // 0
-console.log(countStudents([1,1,1,0,0,1], [1,0,0,0,1,1])); // 3
+console.log(countStudents([1, 1, 0, 0], [0, 1, 0, 1])); // 0
+console.log(countStudents([1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1])); // 3
