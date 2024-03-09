@@ -19,7 +19,17 @@
 // 3. 2 steps + 1 step
 
 const climbStairs = (n) => {
-    
+    let differentPaths = [0, 1, 2, 3];
+
+    if(!differentPaths[n]) countSteps(n)
+
+    function countSteps(n) {
+        if(differentPaths[n]) return differentPaths[n];
+
+        return differentPaths[n] = countSteps(n - 1) + countSteps(n - 2);
+    }
+
+    return differentPaths[n];
 }
 
 console.log(climbStairs(2)); // 2
