@@ -20,7 +20,9 @@
 // Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
 const fib = (n) => {
+    if (n <= 1) return n
 
+    return fib(n - 1) + fib(n - 2);
 };
 
 console.log(fib(2)); // 1
