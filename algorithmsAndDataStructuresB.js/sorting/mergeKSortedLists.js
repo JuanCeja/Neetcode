@@ -25,8 +25,14 @@
 // Output: []
 
 const mergeKLists = (lists) => {
-
+    let arrayToSort = [];
+    for (let array of lists) {
+        for (let element of array) {
+            arrayToSort.push(element);
+        }
+    }
+    return arrayToSort.sort((a, b) => a - b);
 };
 
-console.log(mergeKLists([[1,4,5],[1,3,4],[2,6]])); // [1,1,2,3,4,4,5,6]
+console.log(mergeKLists([[1, 4, 5], [1, 3, 4], [2, 6]])); // [1,1,2,3,4,4,5,6]
 console.log(mergeKLists([[]])); // []
