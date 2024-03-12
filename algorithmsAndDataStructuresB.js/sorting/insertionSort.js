@@ -15,7 +15,10 @@
 // Explanation: Note that the values of nums are not necessairly unique.
 
 const sortArray = (nums) => {
-
+    // iterate our array
+        // compare current element to prev element
+        // while the element is smaller keep swapping it down until it cant
+    // return our nums array
 }
 
 console.log(sortArray([5,2,3,1])); // [1,2,3,5]
