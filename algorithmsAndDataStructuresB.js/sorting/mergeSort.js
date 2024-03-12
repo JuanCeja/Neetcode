@@ -14,8 +14,21 @@
 // Output: [0,0,1,1,2,5]
 // Explanation: Note that the values of nums are not necessairly unique.
 
+// merge helper function
+const merge = (left, right) => {
+    // pointers
+    // result
+    // while pointers both in range
+    // if left < push left move pointer
+    // if right < push right move pointer
+    // push remaining values
+    // return result
+};
+
 const mergeSort = (nums) => {
-    
+    // create our mid point
+    // call merge sort on our left and right halfs
+    // return our merged left and right halfs
 };
 
 console.log(mergeSort([5, 2, 3, 1])); // [1,2,3,5]
