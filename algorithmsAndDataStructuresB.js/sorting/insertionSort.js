@@ -15,11 +15,15 @@
 // Explanation: Note that the values of nums are not necessairly unique.
 
 const sortArray = (nums) => {
-    // iterate our array
-        // compare current element to prev element
-        // while the element is smaller keep swapping it down until it cant
-    // return our nums array
-}
+    for (let i = 1; i < nums.length; i++) {
+        let j = i;
+        while (j >= 0 && nums[j] < nums[j - 1]) {
+            [nums[j], nums[j - 1]] = [nums[j - 1], nums[j]];
+            j--;
+        }
+    }
+    return nums;
+};
 
-console.log(sortArray([5,2,3,1])); // [1,2,3,5]
-console.log(sortArray([5,1,1,2,0,0])); // [0,0,1,1,2,5]
+console.log(sortArray([5, 2, 3, 1])); // [1,2,3,5]
+console.log(sortArray([5, 1, 1, 2, 0, 0])); // [0,0,1,1,2,5]
