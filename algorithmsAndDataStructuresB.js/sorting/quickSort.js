@@ -15,7 +15,19 @@
 // Explanation: Note that the values of nums are not necessairly unique.
 
 const quickSort = (array) => {
+    if (array.length <= 1) return array;
 
+    let pivot = array.length - 1;
+    let leftPointer = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < array[pivot]) {
+            [array[i], array[leftPointer]] = [array[leftPointer], array[i]]
+            leftPointer++;
+        }
+    }
+
+    [array[leftPointer], array[pivot]] = [array[pivot], array[leftPointer]];
 };
 
 console.log(quickSort([5, 2, 3, 1])); // [1,2,3,5]
