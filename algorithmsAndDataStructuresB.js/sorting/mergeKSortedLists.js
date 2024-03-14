@@ -35,7 +35,17 @@ class LinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
-        this.size = 0;
+    }
+
+    append(data) {
+        let newNode = new Node(data);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
     }
 
     mergeList(l1, l2) {
@@ -72,5 +82,16 @@ class LinkedList {
     }
 }
 
-console.log(mergeKLists([[1, 4, 5], [1, 3, 4], [2, 6]])); // [1,1,2,3,4,4,5,6]
-console.log(mergeKLists([[]])); // []
+let myLinkedList = new LinkedList();
+
+let list1 = new LinkedList();
+[1, 4, 5].forEach(data => list1.append(data));
+
+let list2 = new LinkedList();
+[1, 3, 4].forEach(data => list2.append(data));
+
+let list3 = new LinkedList();
+[2, 6].forEach(data => list3.append(data));
+
+console.log(myLinkedList.mergeKLists([list1, list2, list3])); // [1,1,2,3,4,4,5,6]
+console.log(myLinkedList.mergeKLists([[]])); // []
