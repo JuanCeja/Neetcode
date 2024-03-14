@@ -24,15 +24,28 @@
 // Input: lists = [[]]
 // Output: []
 
-const mergeKLists = (lists) => {
-    let arrayToSort = [];
-    for (let array of lists) {
-        for (let element of array) {
-            arrayToSort.push(element);
-        }
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
     }
-    return arrayToSort.sort((a, b) => a - b);
-};
+}
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+
+    mergeSort(this, l1, l2) {
+
+    }
+
+    mergeKLists() {
+
+    }
+}
 
 console.log(mergeKLists([[1, 4, 5], [1, 3, 4], [2, 6]])); // [1,1,2,3,4,4,5,6]
 console.log(mergeKLists([[]])); // []
