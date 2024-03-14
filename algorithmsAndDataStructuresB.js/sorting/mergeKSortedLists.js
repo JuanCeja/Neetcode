@@ -38,12 +38,37 @@ class LinkedList {
         this.size = 0;
     }
 
-    mergeSort(this, l1, l2) {
+    mergeList(l1, l2) {
+        const dummy = new Node(0);
 
+        let temp = dummy;
+        while (l1 !== null && l2 !== null) {
+            if (l1.data < l2.data) {
+                temp.next = l1;
+                l1 = l1.next;
+            } else {
+                temp.next = l2;
+                l2 = l2.next;
+            }
+            temp = temp.next;
+        }
+
+        if (l1 !== null) temp.next = l1;
+        if (l2 !== null) temp.next = l2;
+
+        return dummy.next;
     }
 
-    mergeKLists() {
+    mergeKLists(lists) {
+        if (!lists.length) return null;
 
+        while (lists.length > 1) {
+            let a = lists.shift();
+            let b = lists.shift();
+            const h = this.mergeList(a, b);
+            lists.push(h);
+        }
+        return lists[0];
     }
 }
 
