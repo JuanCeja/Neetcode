@@ -14,6 +14,15 @@
 
 
 const findKthLargest = (nums, k) => {
+    // count variable
+
+    // iterate the nums array
+        // if value does not exist in set add it to set
+
+    // iterate the set
+        // if our counter === k 
+            // return that value
+        // increment counter
 
 }
 
