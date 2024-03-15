@@ -13,27 +13,27 @@
 // Output: 4
 
 
-const findKthLargest = (nums, k, s = 0, e = nums.length - 1) => {
+const findKthLargest = (nums, k) => {
+    k = nums.length - k;
 
-    if (e - s + 1 <= 1) return nums;
+    const quickSelect = (l, r) => {
+        let pivot = nums[r];
+        let pointer = l;
 
-    let left = s;
-    let pivot = nums[e];
-
-    for (let i = s; i < nums.length; i++) {
-        if (nums[i] < pivot) {
-            [nums[i], nums[left]] = [nums[left], nums[i]];
-            left++;
+        for (let i = l; i < r; i++) {
+            if (nums[i] < pivot) {
+                [nums[i], nums[pointer]] = [nums[pointer], nums[i]];
+                pointer++;
+            }
         }
+        [nums[r], nums[pointer]] = [nums[pointer], nums[r]];
+
+        if (k < pointer) return quickSelect(l, pointer - 1)
+        else if (k > pointer) return quickSelect(pointer + 1, r)
+        else return nums[pointer];
     }
 
-    if (left === k) return pivot;
-
-    nums[e] = nums[left];
-    nums[left] = pivot;
-
-    findKthLargest(nums, k, 0, left);
-    findKthLargest(nums, k, left, nums.length);
+    return quickSelect(0, nums.length - 1);
 };
 
 console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2)); // 5
