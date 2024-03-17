@@ -13,7 +13,15 @@
 // Output: [0,1,2]
 
 const sortColors = (nums) => {
-    
+    // create our counter arr
+
+    // iterate nums and increment our values count according to our index
+
+    // pointer
+    // iterate counter arr
+        // re assign values of nums
+
+    // return our nums array
 };
 
 console.log(sortColors([2, 0, 2, 1, 1, 0])); // [0, 0, 1, 1, 2, 2]
