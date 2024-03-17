@@ -13,15 +13,22 @@
 // Explanation: 2 does not exist in nums so return -1
 
 const binarySearch = (nums, target) => {
-    // create our pointers and mid
-    // while left < right
-        // if mid === target return
-        // if target < mid
-            // right becomes mid + 1
-        // if target > mid
-            // left becomes mid
-    // return -1 if not found
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (nums[mid] === target) {
+            return mid;
+        }
+        if (target < nums[mid]) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return -1;
 };
 
-console.log(binarySearch([-1,0,3,5,9,12], 9)); // 4
-console.log(binarySearch([-1,0,3,5,9,12], 2)); // -1
+console.log(binarySearch([-1, 0, 3, 5, 9, 12], 9)); // 4
+console.log(binarySearch([-1, 0, 3, 5, 9, 12], 2)); // -1
