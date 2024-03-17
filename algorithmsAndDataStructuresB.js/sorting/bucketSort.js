@@ -4,7 +4,7 @@ const bucketSort = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         counts[arr[i]]++;
     }
-    console.log(counts)
+    
     let pointer = 0;
 
     for (let i = 0; i < counts.length; i++) {
