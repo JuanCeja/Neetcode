@@ -16,17 +16,16 @@
 
 const searchMatrix = (matrix, target) => {
     let left = 0;
-    let right = matrix[0].length;
-    let lastValue = right - 1;
+    let right = matrix.length - 1;
+    let lastValue = matrix[0].length - 1;
 
     while (left <= right) {
 
         let mid = Math.floor((left + right) / 2);
-
         if (target > mid[lastValue]) {
-            left = mid + 1;
+            left = mid;
         } else if (target < mid[lastValue]) {
-            right = mid - 1;
+            right = mid;
         } else {
             return binarySearch(matrix[mid], target);
         }
@@ -37,18 +36,18 @@ const searchMatrix = (matrix, target) => {
 
 const binarySearch = (arr, target) => {
     let left = 0;
-    let right = arr.length;
+    let right = arr.length - 1;
 
     while (left <= right) {
 
         let mid = Math.floor((left + right) / 2);
-        
-        if (target < arr[mid]) {
-            right = mid - 1;
-        } else if (target > arr[mid]) {
-            left = mid + 1;
-        } else {
+
+        if (arr[mid] === target) {
             return true;
+        } else if (target < arr[mid]) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
         }
     }
 
