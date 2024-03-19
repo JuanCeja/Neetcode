@@ -25,11 +25,11 @@ const searchMatrix = (matrix, target) => {
 
         if (left === right) return binarySearch(matrix[mid], target);
 
-        if (target < matrix[mid[lastValue]] && target > matrix[mid[0]]) {
+        if (target < matrix[mid][lastValue] && target > matrix[mid][0]) {
             return binarySearch(matrix[mid], target);
         }
 
-        if (target > matrix[mid[lastValue]]) {
+        if (target > matrix[mid][lastValue]) {
             left = mid + 1;
         } else {
             right = mid;
