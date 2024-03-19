@@ -22,12 +22,17 @@ const searchMatrix = (matrix, target) => {
     while (left <= right) {
 
         let mid = Math.floor((left + right) / 2);
-        if (target > mid[lastValue]) {
-            left = mid;
-        } else if (target < mid[lastValue]) {
-            right = mid;
-        } else {
+
+        if (left === right) return binarySearch(matrix[mid], target);
+
+        if (target < matrix[mid[lastValue]] && target > matrix[mid[0]]) {
             return binarySearch(matrix[mid], target);
+        }
+
+        if (target > matrix[mid[lastValue]]) {
+            left = mid + 1;
+        } else {
+            right = mid;
         }
     }
 
