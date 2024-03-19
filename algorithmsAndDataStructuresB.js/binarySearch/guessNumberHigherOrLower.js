@@ -23,20 +23,23 @@
 // Input: n = 2, pick = 1
 // Output: 1
 
-const guessNumber = (n, pick) => {
-    // low or high
-    // while loop
-        // if isCorrect return is < 0
-            // right = mid - 1
-        // if isCorrect return is < 0
-            // left = mid + 1
-        // else return pick
-    };
+const guessNumber = (n) => {
+    let low = 1;
+    let high = n;
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+        if (isCorrect(mid) < 0) {
+            high = mid - 1;
+        } else if (isCorrect(mid) > 0) {
+            low = mid + 1;
+        } else return mid;
+    }
+};
 
-const isCorrect = (n) => {
-    // if n is > pick return -1
-    // if n is < pick return 1
-    // if n is === pick return 0
+const isCorrect = (n, pick) => {
+    if (n > pick) return -1;
+    else if (n < pick) return 1;
+    else return 0;
 };
 
 console.log(guessNumber(10, 6)); // 6
