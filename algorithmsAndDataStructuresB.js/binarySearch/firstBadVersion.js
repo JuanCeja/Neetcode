@@ -19,5 +19,13 @@
 // Output: 1
 
 const firstBadVersion = (n) => {
+    let start = 0, end = n;
 
+    // while loop
+        // let mid
+        // if isBadVersion
+            // end = mid - 1
+        // if !isBadVersion
+            // start = mid + 1
+        // else return start
 };
