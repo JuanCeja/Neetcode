@@ -24,22 +24,16 @@
 // Output: 1
 
 const guessNumber = (n) => {
-    let low = 1;
-    let high = n;
-    while (low <= high) {
-        let mid = Math.floor((low + high) / 2);
-        if (isCorrect(mid) < 0) {
-            high = mid - 1;
-        } else if (isCorrect(mid) > 0) {
-            low = mid + 1;
-        } else return mid;
-    }
-};
+    let start = 1, end = n;
 
-const isCorrect = (n, pick) => {
-    if (n > pick) return -1;
-    else if (n < pick) return 1;
-    else return 0;
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        let guessNum = guess(mid);
+
+        if (guessNum === 0) return mid;
+        else if (guessNum === 1) start = mid + 1;
+        else if(guessNum === -1) end = mid - 1;
+    }
 };
 
 console.log(guessNumber(10, 6)); // 6
