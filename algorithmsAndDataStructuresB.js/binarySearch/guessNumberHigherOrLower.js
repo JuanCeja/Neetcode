@@ -24,11 +24,19 @@
 // Output: 1
 
 const guessNumber = (n, pick) => {
-
-};
+    // low or high
+    // while loop
+        // if isCorrect return is < 0
+            // right = mid - 1
+        // if isCorrect return is < 0
+            // left = mid + 1
+        // else return pick
+    };
 
 const isCorrect = (n) => {
-
+    // if n is > pick return -1
+    // if n is < pick return 1
+    // if n is === pick return 0
 };
 
 console.log(guessNumber(10, 6)); // 6
