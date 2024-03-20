@@ -21,6 +21,18 @@
 // Output: 23
 
 const minEatingSpeed = (piles, h) => {
+    // sort piles
+    // get max pile
+    // result to return
+    // while l < right
+        // mid
+        // let total time
+        // iterate piles
+            // let time to eat pile - round it up
+        // if totalTime < h
+            // r = mid - 1
+        // else r = mid + 1
+    // return our result
 
 };
 
