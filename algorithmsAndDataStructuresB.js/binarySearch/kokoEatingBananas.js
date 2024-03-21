@@ -21,10 +21,9 @@
 // Output: 23
 
 const minEatingSpeed = (piles, h) => {
-    let maxPile = Math.max(...piles);
     let left = 1;
-    let right = maxPile;
-    let result = Infinity;
+    let right = Math.max(...piles);
+    let result = right;
 
     while (left <= right) {
         let mid = Math.floor((left + right) / 2);
