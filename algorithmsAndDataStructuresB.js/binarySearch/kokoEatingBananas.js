@@ -21,7 +21,20 @@
 // Output: 23
 
 const minEatingSpeed = (piles, h) => {
-    
+    // let min and max
+    // best
+
+    // while min <= max
+        // let mid
+        // let timeToEat
+
+        // if time <= h
+            // best = time
+            // max = mid - 1
+        // else if time > h
+            // min = mid + 1
+
+    // return best
 };
 
 console.log(minEatingSpeed([3, 6, 7, 11], 8)); // 4
