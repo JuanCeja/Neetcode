@@ -21,28 +21,7 @@
 // Output: 23
 
 const minEatingSpeed = (piles, h) => {
-    let left = 1;
-    let right = Math.max(...piles);
-    let result = right;
-
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2);
-        let totalTime = 0;
-        piles.forEach(pile => {
-            let timeToEat = Math.ceil(pile / mid);
-            totalTime += timeToEat;
-        });
-
-        result = Math.min(result, totalTime);
-
-        if (totalTime < h) {
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
-    }
-
-    return result;
+    
 };
 
 console.log(minEatingSpeed([3, 6, 7, 11], 8)); // 4
