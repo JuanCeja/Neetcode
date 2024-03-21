@@ -21,21 +21,24 @@
 // Output: 23
 
 const minEatingSpeed = (piles, h) => {
-    // create our min and max
-    // our best option
+    let min = 1;
+    let max = Math.max(...piles);
+    let best = max;
 
-    // while min <= max
-        // mid
+    const time = (speed) => piles.reduce((sum, pile) => sum + Math.ceil(pile / speed), 0);
 
-        // our time to eat all bananas
+    while (min <= max) {
+        let mid = Math.floor((min + max) / 2);
 
-        // if time < best option
-            // best = time
-            // max = mid - 1
-        // else
-            // min = mid + 1
+        if (time(mid) <= h) {
+            best = mid;
+            max = mid - 1;
+        } else {
+            min = mid + 1;
+        }
+    };
 
-    // return best
+    return best;
 };
 
 console.log(minEatingSpeed([3, 6, 7, 11], 8)); // 4
