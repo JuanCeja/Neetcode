@@ -38,7 +38,26 @@ class BinarySearchTree {
     }
 
     insert(val) {
+        // if root does not exist set it to root
+
+        // current = root
         
+        // while current
+
+            // if val < current
+
+                // if !left 
+
+                    // current.left = val
+                    // return root
+
+            // if val > current
+
+                // if !right
+
+                    // current.right = val
+                    // return root
+
     }
 }
 
