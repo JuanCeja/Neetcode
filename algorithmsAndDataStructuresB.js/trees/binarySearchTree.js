@@ -19,6 +19,16 @@ class BinarySearchTree {
     }
 
     search(val) {
-        // 
+        // set current to root
+        // while current
+            // if val === current return current
+            // else if val < current
+                //  if current.left
+                    // current = current.left
+                // else return null
+            // else if val > current
+                // if current.right
+                    // current = current.right
+                // else return null
     }
 }
