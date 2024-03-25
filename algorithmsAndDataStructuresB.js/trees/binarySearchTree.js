@@ -36,6 +36,10 @@ class BinarySearchTree {
 
         return null;
     }
+
+    insert(val) {
+        
+    }
 }
 
 function search(root, target) {
