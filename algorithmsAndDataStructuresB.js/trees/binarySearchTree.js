@@ -37,3 +37,13 @@ class BinarySearchTree {
         return null;
     }
 }
+
+function search(root, target) {
+    if (!this.root) return false;
+
+    if (target < root.val) {
+        return search(root.left, target);
+    } else if (target > root.val) {
+        return search(root.right, target);
+    } else return true;
+}
