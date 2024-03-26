@@ -83,24 +83,13 @@ const search = (root, target) => {
     } else return true;
 };
 
-const insertInBST = (root, val) => {
-    if(!root) root = val;
+const insertIntoBST = (root, val) => {
+    if (!root) return new TreeNode(val);
 
-    let current = root;
-
-    while (current) {
-        if (val < current.val) {
-            if (!current.left) {
-                current.left = val;
-                return root;
-            }
-            current = current.left;
-        } else if (val > current.val) {
-            if (!current.right) {
-                current.right = val;
-                return root;
-            }
-            current = current.right;
-        } else return root;
+    if (root.val > val) {
+        root.left = insertIntoBST(root.left, val);
+    } else if (root.val < val) {
+        root.right = insertIntoBST(root.right, val);
     }
+    return root;
 };
