@@ -73,7 +73,7 @@ class BinarySearchTree {
     }
 }
 
-function search(root, target) {
+const search = (root, target) => {
     if (!this.root) return false;
 
     if (target < root.val) {
@@ -81,4 +81,26 @@ function search(root, target) {
     } else if (target > root.val) {
         return search(root.right, target);
     } else return true;
-}
+};
+
+const insertInBST = (root, val) => {
+    if(!root) root = val;
+
+    let current = root;
+
+    while (current) {
+        if (val < current.val) {
+            if (!current.left) {
+                current.left = val;
+                return root;
+            }
+            current = current.left;
+        } else if (val > current.val) {
+            if (!current.right) {
+                current.right = val;
+                return root;
+            }
+            current = current.right;
+        } else return root;
+    }
+};
