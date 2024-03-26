@@ -11,11 +11,17 @@
 // Input: root = [4, 2, 7, 1, 3], val = 5
 // Output: []
 
-class BinarySearchTree {
+class Node {
     constructor(val) {
         this.val = val;
         this.left = null;
         this.right = null;
+    }
+}
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
     }
 
     search(val) {
@@ -38,26 +44,32 @@ class BinarySearchTree {
     }
 
     insert(val) {
-        // if root does not exist set it to root
+        const newNode = new Node(val);
 
-        // current = root
-        
-        // while current
+        if (!this.root) {
+            this.root = newNode;
+            return this.root;
+        };
 
-            // if val < current
+        let current = this.root;
 
-                // if !left 
-
-                    // current.left = val
-                    // return root
-
-            // if val > current
-
-                // if !right
-
-                    // current.right = val
-                    // return root
-
+        while (current) {
+            if (val < current.val) {
+                if (!current.left) {
+                    current.left = newNode;
+                    return this.root;
+                }
+                current = current.left;
+            } else if (val > current.val) {
+                if (!current.right) {
+                    current.right = newNode;
+                    return this.root;
+                }
+                current = current.right;
+            } else {
+                return this.root;
+            }
+        }
     }
 }
 
