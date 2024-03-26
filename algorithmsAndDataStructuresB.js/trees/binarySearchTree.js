@@ -71,6 +71,10 @@ class BinarySearchTree {
             }
         }
     }
+
+    delete() {
+        
+    }
 }
 
 const search = (root, target) => {
