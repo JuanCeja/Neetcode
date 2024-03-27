@@ -72,8 +72,44 @@ class BinarySearchTree {
         }
     }
 
-    delete() {
-        
+    delete(val) {
+        // if !root return false
+
+        // create prev, current
+
+        // while current
+
+            // if val < current
+
+                // if !current.left return false
+
+                // prev = current
+
+                // current = left
+
+            // else if val > current
+
+                // if !current.right return false
+
+                // prev = current
+
+                // current = right
+
+            // else 
+
+                // if current.right 
+
+                    // prev.left = current.right
+
+                    // if prev.left > current.left
+
+                        // prev.left.left = current.left
+
+                    // else prev.left.right = current.left
+
+                    // current.left & right = null
+
+        // return current
     }
 }
 
