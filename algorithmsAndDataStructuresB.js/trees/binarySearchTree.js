@@ -100,7 +100,15 @@ class BinarySearchTree {
     }
 
     inOrderTraversal() {
-        
+        // set up our base case for our recursion calls
+
+        // call function call on left
+
+        // push our root value
+
+        // call function on right
+
+        // return our result
     }
 }
 
