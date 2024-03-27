@@ -73,43 +73,42 @@ class BinarySearchTree {
     }
 
     delete(val) {
-        // if !root return false
+        if (!this.root) return false;
 
-        // create prev, current
+        let prev;
+        let current = this.root;
 
-        // while current
+        while (current) {
+            if (val < current.val) {
 
-            // if val < current
+                if (!current.left) return false;
+                prev = current;
+                current = current.left;
 
-                // if !current.left return false
+            } else if (val > current.val) {
 
-                // prev = current
+                if (!current.right) return false;
+                prev = current;
+                current = current.right;
 
-                // current = left
+            } else {
 
-            // else if val > current
+                if (current.right) {
+                    prev.left = current.right;
+                    if (prev.left > current.left) {
+                        prev.left.left = current.left
+                        current.left = null;
+                        current.right = null;
+                    } else {
+                        prev.left.right = current.left;
+                        current.left = null;
+                        current.right = null;
+                    }
+                }
 
-                // if !current.right return false
-
-                // prev = current
-
-                // current = right
-
-            // else 
-
-                // if current.right 
-
-                    // prev.left = current.right
-
-                    // if prev.left > current.left
-
-                        // prev.left.left = current.left
-
-                    // else prev.left.right = current.left
-
-                    // current.left & right = null
-
-        // return current
+            }
+        }
+        return current;
     }
 }
 
