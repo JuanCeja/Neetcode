@@ -98,6 +98,10 @@ class BinarySearchTree {
         }
         return root;
     }
+
+    inOrderTraversal() {
+        
+    }
 }
 
 const search = (root, target) => {
