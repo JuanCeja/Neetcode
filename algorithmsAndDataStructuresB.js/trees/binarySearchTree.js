@@ -114,6 +114,10 @@ class BinarySearchTree {
 
         return result;
     }
+
+    kthSmallestElement(root, k) {
+        
+    }
 }
 
 const search = (root, target) => {
