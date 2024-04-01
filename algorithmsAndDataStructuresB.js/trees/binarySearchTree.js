@@ -116,11 +116,9 @@ class BinarySearchTree {
     }
 
     kthSmallestElement(root, k) {
-        // if !root return null
-
-        // let array = this.inOrderTraverlal
-
-        // return array[k]
+        if (!root) return null;
+        let orderedArray = this.inOrderTraversal(root);
+        return orderedArray[k - 1];
     }
 }
 
