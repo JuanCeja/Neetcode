@@ -116,9 +116,26 @@ class BinarySearchTree {
     }
 
     kthSmallestElement(root, k) {
-        if (!root) return null;
-        let orderedArray = this.inOrderTraversal(root);
-        return orderedArray[k - 1];
+        let n = 0;
+        let stack = [];
+        let current = root;
+
+        while (current && stack) {
+
+            while (current) {
+                stack.push(current);
+                current = current.left;
+            }
+
+            current = stack.pop();
+            n++;
+            if (n === k) return current.val;
+
+            current = current.right;
+
+        }
+
+        return null;
     }
 }
 
