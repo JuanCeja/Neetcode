@@ -99,16 +99,28 @@ class BinarySearchTree {
         return root;
     }
 
-    inOrderTraversal() {
+    inOrderTraversal(root, []) {
+        const result = [];
         // set up our base case for our recursion calls
+        if (!root) return null;
 
         // call function call on left
+        if(root.left) {
+            // push our root value
+            this.inOrderTraversal(root.left, result);
+            result.push(root.left.val);
+        } 
 
-        // push our root value
-
+        result.push(root.val);
+        
         // call function on right
-
+        if(root.right) {
+            // push our root value
+            this.inOrderTraversal(root.right, result);
+            result.push(root.right.val);
+        } 
         // return our result
+        return result;
     }
 }
 
