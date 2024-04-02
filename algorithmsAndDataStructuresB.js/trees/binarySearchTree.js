@@ -120,9 +120,9 @@ class BinarySearchTree {
         let stack = [];
         let current = root;
 
-        while(current || stack.length > 0) {
+        while (current || stack.length > 0) {
 
-            while(current) {
+            while (current) {
                 stack.push(current);
                 current = current.left;
             }
@@ -135,6 +135,10 @@ class BinarySearchTree {
         }
 
         return -1;
+    }
+
+    constructBSTFromPoAndIo(preOrder, inOrder) {
+        
     }
 }
 
