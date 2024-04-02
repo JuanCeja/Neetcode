@@ -131,6 +131,22 @@ class BinarySearchTree {
         return result;
     }
 
+    postOrderTraversal(root, result = []) {
+        if (!root) return result;
+
+        if (root.left) {
+            this.postOrderTraversal(root.left, result);
+        }
+
+        if (root.right) {
+            this.postOrderTraversal(root.right, result);
+        }
+
+        result.push(root.val);
+
+        return result;
+    }
+
     kthSmallestElement(root, k) {
         let n = 0;
         let stack = [];
@@ -154,12 +170,12 @@ class BinarySearchTree {
     }
     // build tree using inorder and preorder traversals
     buildTree(preorder, inorder) {
-        if(!preorder.length || !inorder.length) return null;
+        if (!preorder.length || !inorder.length) return null;
 
         let root = new TreeNode(preorder[0]);
         let mid = inorder.indexOf(root.val);
 
-        root.left = this.buildTree(preorder.slice(1, mid  + 1), inorder.slice(0, mid));
+        root.left = this.buildTree(preorder.slice(1, mid + 1), inorder.slice(0, mid));
         root.right = this.buildTree(preorder.slice(mid + 1), inorder.slice(mid + 1));
 
         return root;
