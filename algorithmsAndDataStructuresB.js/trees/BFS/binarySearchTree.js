@@ -30,6 +30,10 @@ class BinarySearchTree {
         return null;
     }
 
+    searchBFS () {
+        
+    }
+
     insert(val) {
         const newNode = new TreeNode(val);
 
