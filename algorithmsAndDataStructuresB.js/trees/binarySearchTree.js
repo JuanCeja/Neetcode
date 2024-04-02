@@ -11,7 +11,7 @@
 // Input: root = [4, 2, 7, 1, 3], val = 5
 // Output: []
 
-class Node {
+class TreeNode {
     constructor(val) {
         this.val = val;
         this.left = null;
@@ -44,7 +44,7 @@ class BinarySearchTree {
     }
 
     insert(val) {
-        const newNode = new Node(val);
+        const newNode = new TreeNode(val);
 
         if (!this.root) {
             this.root = newNode;
@@ -136,9 +136,17 @@ class BinarySearchTree {
 
         return -1;
     }
+    // build tree using inorder and preorder traversals
+    buildTree(preorder, inorder) {
+        if(!preorder.length || !inorder.length) return null;
 
-    constructBSTFromPoAndIo(preOrder, inOrder) {
-        
+        let root = new TreeNode(preorder[0]);
+        let mid = inorder.indexOf(root.val);
+
+        root.left = this.buildTree(preorder.slice(1, mid  + 1), inorder.slice(0, mid));
+        root.right = this.buildTree(preorder.slice(mid + 1), inorder.slice(mid + 1));
+
+        return root;
     }
 }
 
