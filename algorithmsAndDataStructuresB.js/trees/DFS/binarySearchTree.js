@@ -115,6 +115,22 @@ class BinarySearchTree {
         return result;
     }
 
+    preOrderTraversal(root, result = []) {
+        if (!root) return result;
+
+        result.push(root.val);
+
+        if (root.left) {
+            this.preOrderTraversal(root.left, result);
+        }
+
+        if (root.right) {
+            this.preOrderTraversal(root.right, result);
+        }
+
+        return result;
+    }
+
     kthSmallestElement(root, k) {
         let n = 0;
         let stack = [];
