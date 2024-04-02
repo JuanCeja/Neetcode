@@ -138,20 +138,7 @@ class BinarySearchTree {
     }
 
     constructBSTFromPoAndIo(preOrder, inOrder) {
-        let p = 0;
-        let i = 0;
-
-        const build = (stop) => {
-            if (inOrder[i] != stop) {
-                let root = new TreeNode(preOrder[p++]);
-                root.left = build(root.val);
-                i++;
-                root.right = build(stop);
-                return root;
-            }
-            return null;
-        }
-        return build();
+        
     }
 }
 
