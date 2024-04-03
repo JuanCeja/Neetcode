@@ -30,26 +30,30 @@ class BinarySearchTree {
         return null;
     }
 
-    searchBFS (root) {
-        // output
+    searchBFS() {
+        if(!this.root) return null;
 
-        // our queue
+        let output = [];
+        let queue = [];
 
-        // push root to queue
+        queue.push(this.root);
 
-        // while queue is not empty
+        while (queue.length) {
+            let row = [];
 
-            // curr = queue shift
+            for (const q of queue) {
+                row.push(q);
+            }
 
-            // if left
+            let curr = queue.shift();
 
-                // push left
+            if (curr.left) queue.push(curr.left);
+            if (curr.right) queue.push(curr.right);
 
-            // if right
+            output.push(row);
+        }
 
-                // push right
-
-        // return output
+        return output;
     }
 
     insert(val) {
