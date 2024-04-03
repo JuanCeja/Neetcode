@@ -30,8 +30,26 @@ class BinarySearchTree {
         return null;
     }
 
-    searchBFS () {
-        
+    searchBFS (root) {
+        // output
+
+        // our queue
+
+        // push root to queue
+
+        // while queue is not empty
+
+            // curr = queue shift
+
+            // if left
+
+                // push left
+
+            // if right
+
+                // push right
+
+        // return output
     }
 
     insert(val) {
