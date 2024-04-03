@@ -30,31 +30,25 @@ class BinarySearchTree {
         return null;
     }
 
-    searchBFS() {
-        if(!this.root) return null;
-
+    levelOrder(root) {
+        let queue = [root];
         let output = [];
-        let queue = [];
 
-        queue.push(this.root);
+        while (queue[0]) {
+            let row = [], qlen = queue.length;
 
-        while (queue.length) {
-            let row = [];
+            for (let i = 0; i < qlen; i++) {
+                let curr = queue.shift();
 
-            for (const q of queue) {
-                row.push(q);
+                row.push(curr.val);
+
+                if (curr.left) queue.push(curr.left);
+                if (curr.right) queue.push(curr.right);
             }
-
-            let curr = queue.shift();
-
-            if (curr.left) queue.push(curr.left);
-            if (curr.right) queue.push(curr.right);
-
             output.push(row);
         }
-
         return output;
-    }
+    };
 
     insert(val) {
         const newNode = new TreeNode(val);
