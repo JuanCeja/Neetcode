@@ -31,23 +31,7 @@ class BinarySearchTree {
     }
 
     levelOrder(root) {
-        let queue = [root];
-        let output = [];
-
-        while (queue[0]) {
-            let row = [], qlen = queue.length;
-
-            for (let i = 0; i < qlen; i++) {
-                let curr = queue.shift();
-
-                row.push(curr.val);
-
-                if (curr.left) queue.push(curr.left);
-                if (curr.right) queue.push(curr.right);
-            }
-            output.push(row);
-        }
-        return output;
+        
     };
 
     insert(val) {
