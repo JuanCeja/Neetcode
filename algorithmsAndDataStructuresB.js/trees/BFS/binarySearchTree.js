@@ -31,7 +31,29 @@ class BinarySearchTree {
     }
 
     levelOrder(root) {
+        // output array
+        let output = [];
+        // create queue
+        let queue = [root];
+        // enqueue the root node
         
+        // as long as a node exists in the queue
+
+            // row array
+
+            // dequeue a node from the front of the queue
+
+            // read the nodes value
+
+            // enqueue the nodes left node
+
+            // enqueue the nodes right node
+
+            // push our row array to output array
+
+        // return output
+
+
     };
 
     insert(val) {
