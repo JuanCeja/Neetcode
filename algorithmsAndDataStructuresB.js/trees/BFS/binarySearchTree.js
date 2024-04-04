@@ -57,16 +57,23 @@ class BinarySearchTree {
     let queue = [root];
     let output = [];
     
-    while (queue.length) {
-      let qlen = queue.length;
+    // while queue.length
 
-      for (let i = 0; i < qlen; i++) {
-        let curr = queue.shift();
-        output.push(curr.val);
-        if (curr.right) queue.push(curr.right);
-      }
-    }
-    return output;
+        // rightNode
+
+        // qlen = queue.length
+
+        // loop through our queue which is our current row
+
+            // curr = queue.shift()
+
+            // push curr child nodes to queue
+
+            // rightNode = curr;
+
+        // push curr.val to output
+
+    // return output
   }
 
   insert(val) {
