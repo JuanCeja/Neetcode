@@ -35,25 +35,23 @@ class BinarySearchTree {
         let output = [];
         // create queue
         let queue = [root];
-        // enqueue the root node
-        
         // as long as a node exists in the queue
-
+        while(queue.length) {
             // row array
-
+            let row = [];
             // dequeue a node from the front of the queue
-
+            let current = queue.pop();
             // read the nodes value
-
+            row.push(current.val);
             // enqueue the nodes left node
-
             // enqueue the nodes right node
-
+            if(current.left) queue.push(current.left);
+            if(current.right) queue.push(current.right);
             // push our row array to output array
-
+            output.push(row);
+        }
         // return output
-
-
+        return output;
     };
 
     insert(val) {
