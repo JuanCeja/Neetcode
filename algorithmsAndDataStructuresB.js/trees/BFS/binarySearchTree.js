@@ -56,24 +56,22 @@ class BinarySearchTree {
   rightSideView(root) {
     let queue = [root];
     let output = [];
-    
-    // while queue.length
 
-        // rightNode
+    while (queue.length) {
+      let rightMostNode = null;
+      let qlen = queue.length;
 
-        // qlen = queue.length
-
-        // loop through our queue which is our current row
-
-            // curr = queue.shift()
-
-            // push curr child nodes to queue
-
-            // rightNode = curr;
-
-        // push curr.val to output
-
-    // return output
+      for (let i = 0; i < qlen; i++) {
+        let current = queue.shift();
+        if(current) {
+            queue.push(current.left);
+            queue.push(current.right);
+            rightMostNode = current;
+        }
+      }
+      if(rightMostNode) output.push(rightMostNode.val);
+    }
+    return output;
   }
 
   insert(val) {
