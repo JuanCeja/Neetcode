@@ -30,7 +30,7 @@ class BinarySearchTree {
     return null;
   }
 
-//   BST ALGORITHM
+  //   BST ALGORITHM
   levelOrder(root) {
     let output = [];
     let queue = [root];
@@ -54,24 +54,20 @@ class BinarySearchTree {
   }
 
   rightSideView(root) {
-    // start a queue with our root
+    let queue = [root];
+    let output = [];
+    
+    while (queue.length) {
+      let qlen = queue.length;
 
-    // output array
-
-    // while nodes exist in the queue
-
-        // lenght of our row
-
-        // iterate our values for that row
-
-            // dequeue from our queue
-
-            // push current value
-
-            // if current has right node then push right
-
-    // return our output array
-  };
+      for (let i = 0; i < qlen; i++) {
+        let curr = queue.shift();
+        output.push(curr.val);
+        if (curr.right) queue.push(curr.right);
+      }
+    }
+    return output;
+  }
 
   insert(val) {
     const newNode = new TreeNode(val);
