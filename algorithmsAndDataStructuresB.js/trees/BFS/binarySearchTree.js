@@ -32,25 +32,25 @@ class BinarySearchTree {
 
   //   BST ALGORITHM
   levelOrder(root) {
-    let output = [];
-    let queue = [root];
+    // create our queue
 
-    while (queue[0]) {
-      let row = [];
-      let qlen = queue.length;
+    // result
 
-      for (let i = 0; i < qlen; i++) {
-        let current = queue.shift();
+    // while queue is not empty
 
-        row.push(current.val);
+      // our row
 
-        if (current.left) queue.push(current.left);
-        if (current.right) queue.push(current.right);
-      }
+      // for loop the length of the queue
 
-      output.push(row);
-    }
-    return output;
+        // push value to the row but also remove from our queue
+
+        // if node has left child push the child to our queue
+
+        // if node has right child push the child to our queue
+
+      // push our row to the result
+
+    // return our result
   }
 
   rightSideView(root) {
