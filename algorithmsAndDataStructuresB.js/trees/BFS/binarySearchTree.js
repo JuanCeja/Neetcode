@@ -53,24 +53,7 @@ class BinarySearchTree {
   }
 
   rightSideView(root) {
-    let queue = [root];
-    let output = [];
-
-    while (queue.length) {
-      let rightMostNode = null;
-      let qlen = queue.length;
-
-      for (let i = 0; i < qlen; i++) {
-        let current = queue.shift();
-        if (current) {
-          queue.push(current.left);
-          queue.push(current.right);
-          rightMostNode = current;
-        }
-      }
-      if (rightMostNode) output.push(rightMostNode.val);
-    }
-    return output;
+    
   }
 
   insert(val) {
