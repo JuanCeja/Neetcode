@@ -53,10 +53,9 @@ class BinarySearchTree {
   }
 
   rightSideView(root) {
-
     let queue = [root];
     let result = [];
-    
+
     while (queue.length) {
       let farMostNode = null;
       let qlen = queue.length;
@@ -220,19 +219,19 @@ class BinarySearchTree {
   }
 
   // for regular binary trees
-  hasPathSum(root, targetSum, currentSum) {
-    if(!root) return false;
-    
+  hasPathSum(root, targetSum, currentSum = 0) {
+    if (!root) return false;
+
     currentSum += root.val;
 
-    if(currentSum > targetSum) return false;
-    if(!root.left && !root.right && currentSum === targetSum) return true;
-    if(!root.left && !root.right && currentSum !== targetSum) return false;
+    if (currentSum > targetSum) return false;
+    if (!root.left && !root.right && currentSum === targetSum) return true;
+    if (!root.left && !root.right && currentSum !== targetSum) return false;
 
     if (hasPathSum(root.left, targetSum, currentSum)) return true;
     if (hasPathSum(root.right, targetSum, currentSum)) return true;
 
-    targetSum -= currentSum;
+    currentSum -= root.val;
     return false;
   }
 }
