@@ -53,7 +53,27 @@ class BinarySearchTree {
   }
 
   rightSideView(root) {
-    
+    // create our queue
+
+    // result
+
+    // while queue.length > 0
+
+      // farMostNode
+
+      // use for loop for current row
+
+        // let currernt = queue.shift
+
+        // if current
+
+          // farMostNode = current
+
+          // push left side and right side of current node
+
+      // if farMostNode true push the value to our result
+
+    // return our result
   }
 
   insert(val) {
@@ -180,6 +200,7 @@ class BinarySearchTree {
 
     return -1;
   }
+
   // build tree using inorder and preorder traversals
   buildTree(preorder, inorder) {
     if (!preorder.length || !inorder.length) return null;
