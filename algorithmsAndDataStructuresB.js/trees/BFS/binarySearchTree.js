@@ -220,20 +220,20 @@ class BinarySearchTree {
   }
 
   // for regular binary trees
-  pathSum(root, targetSum, currentSum) {
-    // our current sum
+  hasPathSum(root, targetSum, currentSum) {
+    if(!root) return false;
+    
+    currentSum += root.val;
 
-    // base case if root does not exist
+    if(currentSum > targetSum) return false;
+    if(!root.left && !root.right && currentSum === targetSum) return true;
+    if(!root.left && !root.right && currentSum !== targetSum) return false;
 
-    // base case if currentSum  goes over targetSum
+    if (hasPathSum(root.left, targetSum, currentSum)) return true;
+    if (hasPathSum(root.right, targetSum, currentSum)) return true;
 
-    // if root does not have children and current sum equals target sum
-
-    // if root has left child go left
-
-    // if root has right child go right
-
-    // remove root value from current sum
+    targetSum -= currentSum;
+    return false;
   }
 }
 
