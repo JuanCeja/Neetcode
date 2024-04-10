@@ -53,27 +53,26 @@ class BinarySearchTree {
   }
 
   rightSideView(root) {
-    // create our queue
 
-    // result
+    let queue = [root];
+    let result = [];
+    
+    while (queue.length) {
+      let farMostNode = null;
+      let qlen = queue.length;
 
-    // while queue.length > 0
+      for (let i = 0; i < qlen; i++) {
+        let currentNode = queue.shift();
 
-      // farMostNode
-
-      // use for loop for current row
-
-        // let currernt = queue.shift
-
-        // if current
-
-          // farMostNode = current
-
-          // push left side and right side of current node
-
-      // if farMostNode true push the value to our result
-
-    // return our result
+        if (currentNode) {
+          farMostNode = currentNode;
+          queue.push(currentNode.left);
+          queue.push(currentNode.right);
+        }
+      }
+      if (farMostNode) result.push(farMostNode.val);
+    }
+    return result;
   }
 
   insert(val) {
