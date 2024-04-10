@@ -218,6 +218,23 @@ class BinarySearchTree {
 
     return root;
   }
+
+  // for regular binary trees
+  pathSum(root, targetSum, currentSum) {
+    // our current sum
+
+    // base case if root does not exist
+
+    // base case if currentSum  goes over targetSum
+
+    // if root does not have children and current sum equals target sum
+
+    // if root has left child go left
+
+    // if root has right child go right
+
+    // remove root value from current sum
+  }
 }
 
 const search = (root, target) => {
