@@ -13,18 +13,26 @@
 // Output: [[],[0]]
 
 const subsets = (arr) => {
-    // intialize an empty result verstor ans
+  let result = [];
+  const n = arr.length;
 
-    // define a helper function that takes parameters for the current subet (op), the input array nums and the current index
+  function helper(currentSubset, startIndex) {
+    
+    if (startIndex === n) {
+      result.push(currentSubset.slice());
+      return;
+    }
 
-    // in the base case when startIndex equals the size of the input array, add the current subset op to the result array
+    currentSubset.push(arr[startIndex]);
+    helper(currentSubset, startIndex + 1);
 
-    // in the recursive case: 
+    currentSubset.pop();
 
-        // make a choice to include the current element at startIndex in the subset and recursively call helper with the updated subset and index
+    helper(currentSubset, startIndex + 1);
+  }
 
-        // backtrack by removing the last addded element at startindex from the subset and recursively call helper with the update index
-
+  helper([], 0);
+  return result;
 };
 
-console.log(subsets([1,2,3])); // [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+console.log(subsets([1, 2, 3])); // [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
