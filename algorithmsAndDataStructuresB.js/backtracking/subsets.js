@@ -13,6 +13,17 @@
 // Output: [[],[0]]
 
 const subsets = (arr) => {
+    // intialize an empty result verstor ans
+
+    // define a helper function that takes parameters for the current subet (op), the input array nums and the current index
+
+    // in the base case when startIndex equals the size of the input array, add the current subset op to the result array
+
+    // in the recursive case: 
+
+        // make a choice to include the current element at startIndex in the subset and recursively call helper with the updated subset and index
+
+        // backtrack by removing the last addded element at startindex from the subset and recursively call helper with the update index
 
 };
 
