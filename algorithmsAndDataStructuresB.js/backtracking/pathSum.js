@@ -2,8 +2,6 @@
 
 // A leaf is a node with no children.
 
- 
-
 // Example 1:
 // Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
 // Output: true
@@ -23,12 +21,13 @@
 // Explanation: Since the tree is empty, there are no root-to-leaf paths.
 
 const hasPathSum = (root, targetSum, currentSum = 0) => {
-    if(!root) return false;
-    
-    currentSum += root.val;
-    if(currentSum === targetSum && !root.left && !root.right) return true;
-    if(root.left) hasPathSum(root.left, targetSum, currentSum);
-    if(root.right) hasPathSum(root.right, targetSum, currentSum);
-    
-    return false;
+  if (!root) return false;
+
+  currentSum += root.val;
+  if (currentSum === targetSum && !root.left && !root.right) return true;
+
+  return (
+    hasPathSum(root.left, targetSum, currentSum) ||
+    hasPathSum(root.right, targetSum, currentSum)
+  );
 };
