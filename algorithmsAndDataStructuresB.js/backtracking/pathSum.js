@@ -22,6 +22,14 @@
 // Output: false
 // Explanation: Since the tree is empty, there are no root-to-leaf paths.
 
-const pathSum = (root) => {
+const pathSum = (root, target, sum = 0) => {
+    // add root val to sum
+
+    // if sum === targetSum && no left && no right  return true
+
+    // if left call recursive function on left
     
+    // if right call recursive function on right
+
+    // return false
 };
