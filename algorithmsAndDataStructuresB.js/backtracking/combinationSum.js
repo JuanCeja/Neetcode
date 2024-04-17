@@ -23,25 +23,7 @@
 // Output: []
 
 const combinationSum = (candidates, target) => {
-  let result = [];
-  let len = candidates.length;
-
-  const dfs = (i, current, total) => {
-    if (total === target) {
-      result.push([...current]);
-      return;
-    }
-
-    if (i >= len || total > target) return;
-
-    current.push(candidates[i]);
-    dfs(i, current, total + candidates[i]);
-    current.pop();
-    dfs(i + 1, current, total);
-  };
-
-  dfs(0, [], 0);
-  return result;
+  
 };
 
 console.log(combinationSum([2, 3, 6, 7], 7)); // [[2,2,3],[7]]
