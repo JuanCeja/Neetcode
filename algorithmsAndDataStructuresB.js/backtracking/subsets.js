@@ -16,9 +16,8 @@ const subsets = (arr) => {
   let result = [];
   const n = arr.length;
 
-  function helper(currentSubset, startIndex) {
-    
-    if (startIndex === n) {
+  function helper(currentSubset, startIndex){
+    if(startIndex === n) {
       result.push(currentSubset.slice());
       return;
     }
@@ -33,6 +32,7 @@ const subsets = (arr) => {
 
   helper([], 0);
   return result;
+
 };
 
 console.log(subsets([1, 2, 3])); // [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
