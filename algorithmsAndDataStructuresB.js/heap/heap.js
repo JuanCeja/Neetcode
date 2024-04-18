@@ -25,6 +25,34 @@ class Heap {
     return this;
   }
 
+  pop() {
+    // remove our root element
+
+    // swap it with our last element
+
+    // heapify down our new root to find its right place
+
+        // if current has no children
+
+            // return
+
+        // if it has only a left child
+
+            // if it only has a left child
+
+                // if it is swap it
+
+                // re initialize current
+
+        // if it has both children
+
+            // swap it with its smaller child
+
+            // re initialize current
+
+    // return 
+  }
+
   printTree() {
     if (this.heap.length === 0) {
       console.log("Heap is empty.");
