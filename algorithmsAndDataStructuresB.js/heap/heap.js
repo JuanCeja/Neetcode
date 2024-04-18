@@ -13,16 +13,60 @@ class Heap {
     let parent = Math.floor(current / 2);
 
     while (this.heap[current] > this.heap[parent]) {
-        [this.heap[current], this.heap[parent]] = [this.heap[parent], this.heap[current]];
+      [this.heap[current], this.heap[parent]] = [
+        this.heap[parent],
+        this.heap[current],
+      ];
 
-        current = parent;
-        parent = Math.floor((current - 1) / 2);
+      current = parent;
+      parent = Math.floor((current - 1) / 2);
     }
 
     return this;
   }
-}
 
+  printTree() {
+    if (this.heap.length === 0) {
+      console.log("Heap is empty.");
+      return;
+    }
+
+    const queue = [];
+    queue.push(0);
+
+    const levels = Math.ceil(Math.log2(this.heap.length + 1));
+    const maxWidth = 2 ** levels * 2;
+
+    let level = 0;
+
+    while (queue.length > 0) {
+      const levelSize = queue.length;
+
+      const indentSpace = maxWidth / 2 ** (level + 1);
+
+      let levelOutput = "";
+      for (let i = 0; i < levelSize; i++) {
+        const index = queue.shift();
+
+        levelOutput += " ".repeat(indentSpace) + this.heap[index];
+
+        const leftIndex = 2 * index + 1;
+        const rightIndex = 2 * index + 2;
+
+        if (leftIndex < this.heap.length) {
+          queue.push(leftIndex);
+        }
+        if (rightIndex < this.heap.length) {
+          queue.push(rightIndex);
+        }
+
+        levelOutput += " ".repeat(indentSpace * 2);
+      }
+      console.log(levelOutput);
+      level++;
+    }
+  }
+}
 
 let myHeap = new Heap();
 myHeap.push(7);
@@ -31,5 +75,6 @@ myHeap.push(71);
 myHeap.push(23);
 myHeap.push(89);
 myHeap.push(5);
+myHeap.push(115);
 
-console.log(myHeap);
+myHeap.printTree();
