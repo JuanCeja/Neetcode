@@ -26,18 +26,26 @@ class Heap {
   }
 
   pop() {
-    // remove our root element
+    if(this.heap.length <= 1) return [];
+    
+    [this.heap[this.heap.length - 1], this.heap[0]] = [this.heap[0], this.heap[this.heap.length - 1]];
 
-    // swap it with our last element
+    this.heap.pop();
 
-    // heapify down our new root to find its right place
+    let current = 0;
+    let leftChild = Math.floor(current / 2);
+    let rightChild = Math.floor((current / 2) + 1);
 
-        // if current has no children
-
-            // return
-
-        // if it has only a left child
-
+    while(this.heap[current]) {
+        
+        if(!this.heap[leftChild] && !this.heap[rightChild]) {
+            return this;
+        } else if(this.heap[leftChild] && !this.heap[rightChild]) {
+            if(this.heap[current] < this.heap[leftChild]) {
+                [this.heap[leftChild], this.heap[current]] = [this.heap[current], this.heap[leftChild]];
+                current = leftChild;
+            }
+        }
             // if it only has a left child
 
                 // if it is swap it
@@ -49,6 +57,8 @@ class Heap {
             // swap it with its smaller child
 
             // re initialize current
+
+}
 
     // return 
   }
