@@ -14,8 +14,22 @@ class Heap {
 
     while (this.heap[current] > this.heap[parent]) {
         [this.heap[current], this.heap[parent]] = [this.heap[parent], this.heap[current]];
+
+        current = parent;
+        parent = Math.floor((current - 1) / 2);
     }
 
     return this;
   }
 }
+
+
+let myHeap = new Heap();
+myHeap.push(7);
+myHeap.push(17);
+myHeap.push(71);
+myHeap.push(23);
+myHeap.push(89);
+myHeap.push(5);
+
+console.log(myHeap);
