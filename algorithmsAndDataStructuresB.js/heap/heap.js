@@ -25,7 +25,7 @@ class Heap {
     return this;
   }
 
-  pop() {
+  removeRoot() {
     if (this.heap.length <= 1) return [];
 
     [this.heap[this.heap.length - 1], this.heap[0]] = [
@@ -34,39 +34,31 @@ class Heap {
     ];
 
     this.heap.pop();
+    this.heap.unshift(null);
 
     let current = 0;
-    let leftChild = Math.floor(current * 2);
-    let rightChild = Math.floor(current * 2 + 1);
+    let leftChild, rightChild;
+    let len = this.heap.length;
 
-    while (this.heap[current]) {
-      if (!this.heap[leftChild] && !this.heap[rightChild]) {
-        return this;
-      } else if (this.heap[leftChild] && !this.heap[rightChild]) {
-        if (this.heap[current] < this.heap[leftChild]) {
-          [this.heap[leftChild], this.heap[current]] = [
-            this.heap[current],
-            this.heap[leftChild],
-          ];
-          current = leftChild;
-        }
-      } else {
-        if (this.heap[leftChild] < this.heap[rightChild]) {
-          [this.heap[current], this.heap[leftChild]] = [
-            this.heap[leftChild],
-            this.heap[current],
-          ];
-          current = leftChild;
-        } else {
-          [this.heap[current], this.heap[rightChild]] = [
-            this.heap[rightChild],
-            this.heap[current],
-          ];
-          current = rightChild;
-        }
-      }
+    while (current < len) {
+      leftChild = current * 2 + 1;
+      leftChild = current * 2 + 2;
+
+      if (leftChild >= len) break;
+
+      let swapIndex =
+        rightChild < len && this.heap[rightChild] > this.heap[leftChild]
+          ? rightChild
+          : leftChild;
+
+      if (this.heap[current] < this.heap[swapIndex]) {
+        [this.heap[current], this.heap[swapIndex]] = [
+          this.heap[swapIndex],
+          this.heap[current],
+        ];
+        current = swapIndex;
+      } else break;
     }
-
     return this;
   }
 
@@ -121,5 +113,6 @@ myHeap.push(23);
 myHeap.push(89);
 myHeap.push(5);
 myHeap.push(115);
-
+myHeap.printTree();
+myHeap.removeRoot();
 myHeap.printTree();
