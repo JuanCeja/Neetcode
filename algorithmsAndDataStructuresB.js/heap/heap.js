@@ -26,41 +26,48 @@ class Heap {
   }
 
   pop() {
-    if(this.heap.length <= 1) return [];
-    
-    [this.heap[this.heap.length - 1], this.heap[0]] = [this.heap[0], this.heap[this.heap.length - 1]];
+    if (this.heap.length <= 1) return [];
+
+    [this.heap[this.heap.length - 1], this.heap[0]] = [
+      this.heap[0],
+      this.heap[this.heap.length - 1],
+    ];
 
     this.heap.pop();
 
     let current = 0;
-    let leftChild = Math.floor(current / 2);
-    let rightChild = Math.floor((current / 2) + 1);
+    let leftChild = Math.floor(current * 2);
+    let rightChild = Math.floor(current * 2 + 1);
 
-    while(this.heap[current]) {
-        
-        if(!this.heap[leftChild] && !this.heap[rightChild]) {
-            return this;
-        } else if(this.heap[leftChild] && !this.heap[rightChild]) {
-            if(this.heap[current] < this.heap[leftChild]) {
-                [this.heap[leftChild], this.heap[current]] = [this.heap[current], this.heap[leftChild]];
-                current = leftChild;
-            }
+    while (this.heap[current]) {
+      if (!this.heap[leftChild] && !this.heap[rightChild]) {
+        return this;
+      } else if (this.heap[leftChild] && !this.heap[rightChild]) {
+        if (this.heap[current] < this.heap[leftChild]) {
+          [this.heap[leftChild], this.heap[current]] = [
+            this.heap[current],
+            this.heap[leftChild],
+          ];
+          current = leftChild;
         }
-            // if it only has a left child
+      } else {
+        if (this.heap[leftChild] < this.heap[rightChild]) {
+          [this.heap[current], this.heap[leftChild]] = [
+            this.heap[leftChild],
+            this.heap[current],
+          ];
+          current = leftChild;
+        } else {
+          [this.heap[current], this.heap[rightChild]] = [
+            this.heap[rightChild],
+            this.heap[current],
+          ];
+          current = rightChild;
+        }
+      }
+    }
 
-                // if it is swap it
-
-                // re initialize current
-
-        // if it has both children
-
-            // swap it with its smaller child
-
-            // re initialize current
-
-}
-
-    // return 
+    return this;
   }
 
   printTree() {
