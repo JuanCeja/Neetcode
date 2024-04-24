@@ -8,12 +8,10 @@
 
 // Return the weight of the last remaining stone. If there are no stones left, return 0.
 
- 
-
 // Example 1:
 // Input: stones = [2,7,4,1,8,1]
 // Output: 1
-// Explanation: 
+// Explanation:
 // We combine 7 and 8 to get 1 so the array converts to [2,4,1,1,1] then,
 // we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
 // we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
@@ -24,22 +22,24 @@
 // Output: 1
 
 const lastStoneWeight = (stones) => {
-    // sort the array
+  // sort the array
+  let sortedStones = stones.sort((a, b) => a - b);
+  let len = stones.length;
+  // pointers
+  let biggerRock = len - 1;
+  let smallerRock = len - 2;
+  // while stones.length >= 1
+  while (sortedStones.length > 1) {
+    if (sortedStones[biggerRock] === sortedStones[smallerRock]) {
+      sortedStones = sortedStones.slice(-2);
+    } else {
+      sortedStones[smallerRock] =
+        sortedStones[biggerRock] - sortedStones[smallerRock];
+      sortedStones = sortedStones.slice(-1);
+    }
+  }
+  return sortedStones[0] ? sortedStones[0] : 0;
+};
 
-    // pointers
-
-    // while stones.length >= 1
-
-        // if heaviest stones are equal
-
-            // slice stones array by 2
-
-        // else 
-
-            // make the difference and slice by 1
-
-    // return
-}
-
-console.log(lastStoneWeight([2,7,4,1,8,1])); // 1
+console.log(lastStoneWeight([2, 7, 4, 1, 8, 1])); // 1
 console.log(lastStoneWeight([1])); // 1
