@@ -22,20 +22,21 @@
 // Output: 1
 
 const lastStoneWeight = (stones) => {
-  // sort the array
   let sortedStones = stones.sort((a, b) => a - b);
-  let len = stones.length;
-  // pointers
-  let biggerRock = len - 1;
-  let smallerRock = len - 2;
-  // while stones.length >= 1
+
   while (sortedStones.length > 1) {
+    let len = sortedStones.length;
+    let biggerRock = len - 1;
+    let smallerRock = len - 2;
+
     if (sortedStones[biggerRock] === sortedStones[smallerRock]) {
-      sortedStones = sortedStones.slice(-2);
+      sortedStones.pop();
+      sortedStones.pop();
     } else {
       sortedStones[smallerRock] =
         sortedStones[biggerRock] - sortedStones[smallerRock];
-      sortedStones = sortedStones.slice(-1);
+      sortedStones.pop();
+      sortedStones.sort((a, b) => a - b);
     }
   }
   return sortedStones[0] ? sortedStones[0] : 0;
