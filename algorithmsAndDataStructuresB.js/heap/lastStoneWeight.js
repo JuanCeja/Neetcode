@@ -24,7 +24,21 @@
 // Output: 1
 
 const lastStoneWeight = (stones) => {
+    // sort the array
 
+    // pointers
+
+    // while stones.length >= 1
+
+        // if heaviest stones are equal
+
+            // slice stones array by 2
+
+        // else 
+
+            // make the difference and slice by 1
+
+    // return
 }
 
 console.log(lastStoneWeight([2,7,4,1,8,1])); // 1
