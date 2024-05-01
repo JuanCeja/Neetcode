@@ -19,17 +19,16 @@
 // Output: [0,1]
 
 const twoSum = (nums, target) => {
-    // hashmap
+  let hashmap = {};
 
-    // iterate our nums
+  for (let i = 0; i < nums.length; i++) {
+    let difference = target - nums[i];
 
-        // abs value of the difference 
-
-        // check if the difference is in our hashmap
-
-            // return the indices of both
-
-    // return []
+    if (hashmap.hasOwnProperty(difference)) return [hashmap[difference], i];
+    
+    hashmap[nums[i]] = i;
+  }
+  return [];
 };
 
 console.log(twoSum([2, 7, 11, 15], 9)); // [0,1]
