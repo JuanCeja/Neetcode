@@ -28,7 +28,29 @@
 // lRUCache.get(3);    // return 3
 // lRUCache.get(4);    // return 4
 
-const LRUCache = (capacity) => {
-    
-}
 
+class LRUCache {
+    constructor(capacity) {
+        this.cache = {};
+        this.capacity = capacity;
+    }
+
+    get(key) {
+        if(this.cache.hasOwnProperty(key)) {
+            return this.cache[key];
+        } else return -1;
+    }
+
+    put(key, value) {
+        if(this.cache.hasOwnProperty(key)) {
+            this.cache[key] = value;
+        } else {
+            this.cache[key] = value;
+        }
+    }
+
+    checkLRUCacheCapacity() {
+        let keys = this.cache.keys();
+        if()
+    }
+}
