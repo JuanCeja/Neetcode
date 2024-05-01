@@ -15,7 +15,14 @@
 // Output: true
 
 const containsDuplicate = (nums) => {
+    let map = {};
 
+    for(let num of nums) {
+        if(map[num]) return true;
+        else map[num] = true;
+    }
+    
+    return false;
 }
 
 console.log(containsDuplicate([1,2,3,1])); // true
