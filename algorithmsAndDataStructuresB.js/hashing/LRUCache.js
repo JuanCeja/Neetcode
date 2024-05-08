@@ -44,5 +44,8 @@ class LRUCache {
         return this.cache.get(key);
     }
 
-    
+    put(key, value) {
+        
+    }
+
 }
