@@ -42,13 +42,12 @@ class LRUCache {
   }
 
   put(key, value) {
-    // check if the key already exists delete it and then add our new value
     if (this.cache.has(key)) {
-
+      this.cache.delete(key);
     }
-
-    // else we just add the new value
-
-
+    this.cache.set(key, value);
+    if (this.cache.size() > this.capacity) {
+      this.cache.delete(this.cache.keys().next().value);
+    }
   }
 }
