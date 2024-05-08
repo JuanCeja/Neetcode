@@ -7,8 +7,6 @@
 // void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
 // The functions get and put must each run in O(1) average time complexity.
 
- 
-
 // Example 1:
 // Input
 // ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
@@ -28,24 +26,29 @@
 // lRUCache.get(3);    // return 3
 // lRUCache.get(4);    // return 4
 
-
 class LRUCache {
-    constructor(capacity) {
-        this.cache = new Map();
-        this.capacity = capacity;
+  constructor(capacity) {
+    this.cache = new Map();
+    this.capacity = capacity;
+  }
+
+  get(key) {
+    if (!this.cache.has(key)) return -1;
+
+    const v = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, v);
+    return this.cache.get(key);
+  }
+
+  put(key, value) {
+    // check if the key already exists delete it and then add our new value
+    if (this.cache.has(key)) {
+
     }
 
-    get(key) {
-        if(!this.cache.has(key)) return -1;
+    // else we just add the new value
 
-        const v = this.cache.get(key);
-        this.cache.delete(key);
-        this.cache.set(key, v);
-        return this.cache.get(key);
-    }
 
-    put(key, value) {
-        
-    }
-
+  }
 }
