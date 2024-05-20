@@ -4,10 +4,8 @@
 
 // Return the maximum area of an island in grid. If there is no island, return 0.
 
- 
-
 // Example 1:
-// Input: grid = 
+// Input: grid =
 // [
 //     [0,0,1,0,0,0,0,1,0,0,0,0,0],
 //     [0,0,0,0,0,0,0,1,1,1,0,0,0],
@@ -26,42 +24,45 @@
 // Output: 0
 
 const maxAreaOfIsland = (grid) => {
-    // max island
+  let maxArea = 0;
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[0].length; j++) {
+      if (grid[i][j] === "1") {
+        maxArea = Math.max(explore(j, i, grid, 0), maxArea);
+      }
+    }
+  }
 
-    // outter for loop
-
-        // inner for loop
-
-        // if element is "1"
-
-            // call our explore function
-
-    // return max count
+  return maxArea;
 };
 
 const explore = (r, c, grid, count) => {
-    // if element is out of bounds of is equal to 0 return
+  if (grid[r] === undefined || grid[r][c] === undefined || grid[r][c] === "0")
+    return;
 
-    // add to count
+  count++;
+  grid[r][c] = "0";
 
-    // explore all directions
+  explore(r - 1, c, grid, count);
+  explore(r + 1, c, grid, count);
+  explore(r, c - 1, grid, count);
+  explore(r, c + 1, grid, count);
 
-    // return count
+  return count;
 };
 
-let grid1 = 
-[
-    [0,0,1,0,0,0,0,1,0,0,0,0,0],
-    [0,0,0,0,0,0,0,1,1,1,0,0,0],
-    [0,1,1,0,1,0,0,0,0,0,0,0,0],
-    [0,1,0,0,1,1,0,0,1,0,1,0,0],
-    [0,1,0,0,1,1,0,0,1,1,1,0,0],
-    [0,0,0,0,0,0,0,0,0,0,1,0,0],
-    [0,0,0,0,0,0,0,1,1,1,0,0,0],
-    [0,0,0,0,0,0,0,1,1,0,0,0,0]
+let grid1 = [
+  [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+  [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
 ];
 
-let grid2 = [[0,0,0,0,0,0,0,0]];
+let grid2 = [[0, 0, 0, 0, 0, 0, 0, 0]];
 
 console.log(maxAreaOfIsland(grid1)); // 6
 console.log(maxAreaOfIsland(grid2)); // 0
