@@ -21,7 +21,28 @@
 // ]
 // Output: 3
 
-const numberOfIslands = (grid) => {};
+const teraform = (r, c) => {
+  // turn left to water
+
+  // turn right to water
+
+  // turn top to water
+
+  // turn bottom to water
+};
+
+const numberOfIslands = (grid) => {
+  // countof islands
+
+  // outter for loop
+
+    // inner for loop
+
+      // if element is a '1' we add it to count of island and we call teraform function
+
+
+  // return coun of islands
+};
 
 const grid1 = [
   ["1", "1", "1", "1", "0"],
