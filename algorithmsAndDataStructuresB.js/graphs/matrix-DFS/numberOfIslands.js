@@ -21,27 +21,29 @@
 // ]
 // Output: 3
 
-const teraform = (r, c) => {
-  // turn left to water
+const numberOfIslands = (grid) => {
+  let countOfIslands = 0;
 
-  // turn right to water
-
-  // turn top to water
-
-  // turn bottom to water
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      if (grid[i][j] === "1") {
+        countOfIslands += 1;
+        teraform(i, j, grid);
+      }
+    }
+  }
+  return countOfIslands;
 };
 
-const numberOfIslands = (grid) => {
-  // countof islands
+const teraform = (r, c, grid) => {
+  if(grid[r] === undefined || grid[r][c] === undefined || grid[r][c] === "0") return; 
 
-  // outter for loop
+  grid[r][c] = "0";
 
-    // inner for loop
-
-      // if element is a '1' we add it to count of island and we call teraform function
-
-
-  // return coun of islands
+  teraform(r - 1, c, grid);
+  teraform(r + 1, c, grid);
+  teraform(r, c - 1, grid);
+  teraform(r, c + 1, grid);
 };
 
 const grid1 = [
