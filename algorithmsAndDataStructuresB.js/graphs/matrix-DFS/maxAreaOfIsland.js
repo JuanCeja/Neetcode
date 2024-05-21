@@ -27,8 +27,8 @@ const maxAreaOfIsland = (grid) => {
   let maxArea = 0;
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[0].length; j++) {
-      if (grid[i][j] === "1") {
-        maxArea = Math.max(explore(j, i, grid, 0), maxArea);
+      if (grid[i][j] === 1) {
+        maxArea = Math.max(explore(i, j, grid), maxArea);
       }
     }
   }
@@ -36,17 +36,17 @@ const maxAreaOfIsland = (grid) => {
   return maxArea;
 };
 
-const explore = (r, c, grid, count) => {
-  if (grid[r] === undefined || grid[r][c] === undefined || grid[r][c] === "0")
-    return;
+const explore = (r, c, grid) => {
+  if (grid[r] === undefined || grid[r][c] === undefined || grid[r][c] === 0) return 0;
 
-  count++;
-  grid[r][c] = "0";
+  let count = 1;
 
-  explore(r - 1, c, grid, count);
-  explore(r + 1, c, grid, count);
-  explore(r, c - 1, grid, count);
-  explore(r, c + 1, grid, count);
+  grid[r][c] = 0;
+
+  count += explore(r - 1, c, grid);
+  count += explore(r + 1, c, grid);
+  count += explore(r, c - 1, grid);
+  count += explore(r, c + 1, grid);
 
   return count;
 };
