@@ -18,7 +18,15 @@
 // Input: grid = [[1,0,0],[1,1,0],[1,1,0]]
 // Output: -1
 
-const shortestPath = (grid) => {};
+const shortestPathBinaryMatrix = (grid) => {
+    let visited = new Set();
+    let queue = [];
+    queue.push()
+
+    // while queue is not empty
+
+                // 
+};
 
 let grid1 = [
   [0, 1],
@@ -37,6 +45,6 @@ let grid3 = [
   [1, 1, 0],
 ];
 
-console.log(shortestPath(grid1)); // 2
-console.log(shortestPath(grid2)); // 4
-console.log(shortestPath(grid3)); // -1
+console.log(shortestPathBinaryMatrix(grid1)); // 2
+console.log(shortestPathBinaryMatrix(grid2)); // 4
+console.log(shortestPathBinaryMatrix(grid3)); // -1
