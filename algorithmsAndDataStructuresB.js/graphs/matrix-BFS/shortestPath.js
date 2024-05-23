@@ -19,7 +19,29 @@
 // Output: -1
 
 const shortestPathBinaryMatrix = (grid) => {
-  
+  // size of the grid
+
+  // base case
+
+  // possible directions
+
+  // start a queue with our starting point
+
+  // while queue has a length
+
+    // pop from the queue
+
+    // newCol and newRow variables
+
+    // if new direction hits our target reuturn its distance
+
+    // if next move is valid
+
+      // mark current as 1 so that we dont revisit it
+
+      // push new direction to queue
+
+  // return -1 if no possibilities are valid
 };
 
 let grid1 = [
