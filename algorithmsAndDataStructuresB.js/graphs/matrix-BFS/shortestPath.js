@@ -19,45 +19,7 @@
 // Output: -1
 
 const shortestPathBinaryMatrix = (grid) => {
-  const n = grid.length;
-
-  if (grid[0][0] === 1 || grid[n - 1][n - 1] === 1) return -1;
-
-  const directions = [
-    [1, 0],
-    [-1, 0],
-    [0, 1],
-    [0, -1],
-    [1, 1],
-    [1, -1],
-    [-1, 1],
-    [-1, -1],
-  ];
-
-  let queue = [[0, 0, 1]];
-
-  while (queue.length > 0) {
-    const [row, col, dist] = queue.shift();
-
-    if (row === n - 1 && col === n - 1) return dist;
-
-    for (let [dx, dy] of directions) {
-      let newRow = row + dx;
-      let newCol = col + dy;
-
-      if (
-        newRow >= 0 &&
-        newRow < n &&
-        newCol >= 0 &&
-        newCol < n &&
-        grid[newRow][newCol] === 0
-      ) {
-        grid[newRow][newCol] = 1;
-        queue.push([newRow, newCol, dist + 1]);
-      }
-    }
-  }
-  return -1;
+  
 };
 
 let grid1 = [
