@@ -39,6 +39,8 @@ const shortestPathBinaryMatrix = (grid) => {
   while (queue.length) {
     let [row, col, distance] = queue.shift();
 
+    if (row === n - 1 && col === n - 1) return distance;
+
     for (let [dr, dc] of directions) {
       let newRow = row + dr;
       let newCol = col + dc;
@@ -50,7 +52,7 @@ const shortestPathBinaryMatrix = (grid) => {
         newCol < n &&
         grid[newRow][newCol] === 0
       ) {
-        grid[newRow][newCol] === 1;
+        grid[newRow][newCol] = 1;
         queue.push([newRow, newCol, distance + 1]);
       }
     }
