@@ -33,15 +33,16 @@ const orangesRotting = (grid) => {
     [1, 0],
   ];
 
-  for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[0].length; j++) {
-      if (grid[i][j] === 2) queue.push([i, j, seconds + 1]);
-      else if (grid[i][j] === 1) freshOranges++;
+  for (let r = 0; r < grid.length; r++) {
+    for (let c = 0; c < grid[0].length; c++) {
+      if (grid[r][c] === 2) queue.push([r, c, 0]);
+      else if (grid[r][c] === 1) freshOranges++;
     }
   }
 
   while (queue.length) {
     let [r, c, time] = queue.shift();
+    seconds = Math.max(seconds, time);
 
     for (let [dr, dc] of directions) {
       let newRow = r + dr;
@@ -54,14 +55,14 @@ const orangesRotting = (grid) => {
         newCol < grid[0].length &&
         grid[newRow][newCol] === 1
       ) {
-        seconds = Math.max(seconds, time);
         grid[newRow][newCol] = 2;
         freshOranges--;
+        queue.push([newRow, newCol, seconds + 1]);
       }
     }
   }
 
-  return freshOranges > 0 ? freshOranges : -1;
+  return freshOranges === 0 ? seconds : -1;
 };
 
 let grid1 = [
