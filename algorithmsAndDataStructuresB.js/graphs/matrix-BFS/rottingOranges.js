@@ -22,47 +22,12 @@
 // Explanation: Since there are already no fresh oranges at minute 0, the answer is just 0.
 
 const orangesRotting = (grid) => {
-  let seconds = 0;
-  let queue = [];
-
-  for (let row of grid) {
-    for (let col of grid) {
-      if (grid[row][col] === 2) queue.push([row, col, seconds + 1]);
-    }
-  }
-
   const directions = [
     [0, -1],
     [-1, 0],
     [0, 1],
     [1, 0],
   ];
-
-  while (queue.length) {
-    let [r, c, seconds] = queue.shift();
-
-    for (let [dr, dc] of directions) {
-      let newRow = r + dr;
-      let newCol = c + dc;
-
-      if (
-        newRow >= 0 &&
-        newRow <= grid.length - 1 &&
-        newCol >= 0 &&
-        newCol <= grid.length - 1 &&
-        grid[newRow][newCol] === 1
-      )
-        grid[newRow][newCol] = 2;
-    }
-  }
-
-  for (let row of grid) {
-    for (let col of grid) {
-      if (grid[row][col] === 1) return -1;
-    }
-  }
-
-  return seconds;
 };
 
 let grid1 = [
