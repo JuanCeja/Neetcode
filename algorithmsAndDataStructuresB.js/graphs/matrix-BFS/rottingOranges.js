@@ -42,9 +42,11 @@ const orangesRotting = (grid) => {
       let newCol = c + dc;
 
       if (
-        grid[newRow][newCol] === 1 &&
-        grid[newRow] !== undefined &&
-        grid[newRow][newCol] !== undefined
+        newRow >= 0 &&
+        newRow <= grid.length - 1 &&
+        newCol >= 0 &&
+        newCol <= grid.length - 1 &&
+        grid[newRow][newCol] === 1
       )
         queue.push([newRow, newCol, seconds + 1]);
     }
