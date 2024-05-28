@@ -23,9 +23,13 @@
 
 const orangesRotting = (grid) => {
   let seconds = 0;
-  let queue = [[0, 0, 0]];
+  let queue = [];
 
-  if (grid[0][0] === 0) return 0;
+  for (let row of grid) {
+    for (let col of grid) {
+      if (grid[row][col] === 2) queue.push([row, col, seconds + 1]);
+    }
+  }
 
   const directions = [
     [0, -1],
@@ -48,7 +52,7 @@ const orangesRotting = (grid) => {
         newCol <= grid.length - 1 &&
         grid[newRow][newCol] === 1
       )
-        queue.push([newRow, newCol, seconds + 1]);
+        grid[newRow][newCol] = 2;
     }
   }
 
