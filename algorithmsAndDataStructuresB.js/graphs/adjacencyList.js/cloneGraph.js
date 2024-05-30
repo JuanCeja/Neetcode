@@ -41,7 +41,30 @@
 // Explanation: This an empty graph, it does not have any nodes.
 
 const cloneGraph = (node) => {
+    // start node
+
+    // create a queue with the starting node
+
+    // visited set
+
+    // a map to keep tarck of nodes and neighbors
+
+    // while queue has nodes
+
+        // iterate the length our queue (which is the number of nodes on that level)
+    
+            // let current = popped node 
+
+            // if it doesnt exist in map add it
+
+            // if poppedNode has neighbors
+
+                // iterate its neighbors
+
+                    // add neighbors to map also
+                
+                    // if neightbor isnt visited add it to the queue
+
+    // return our pairs in an array
 
 };
-
-console.log(cloneGraph([[2,4],[1,3],[2,4],[1,3]])); // [[2,4],[1,3],[2,4],[1,3]]
