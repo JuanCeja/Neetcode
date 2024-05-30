@@ -44,6 +44,17 @@ const cloneGraph = (node) => {
   vertexMap.set(start, new Node(start.val));
 
   while (queue.length) {
-    
+    let currentVertex = queue.shift();
+
+    if(!vertexMap[currentVertex.val]) {
+        vertexMap[currentVertex.val] = [];
+    }
+
+    for(let neighbor of currentVertex.neighbors) {
+        vertexMap[currentVertex].push(neighbor.val);
+        queue.push(neighbor);
+    }
   }
+
+  return Object.entries(vertexMap);
 };
