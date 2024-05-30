@@ -8,7 +8,6 @@
 //     public int val;
 //     public List<Node> neighbors;
 // }
- 
 
 // Test case format:
 
@@ -17,8 +16,6 @@
 // An adjacency list is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.
 
 // The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.
-
- 
 
 // Example 1:
 // Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
@@ -30,7 +27,6 @@
 // 4th node (val = 4)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
 // Example 2:
 
-
 // Input: adjList = [[]]
 // Output: [[]]
 // Explanation: Note that the input contains one empty list. The graph consists of only one node with val = 1 and it does not have any neighbors.
@@ -41,30 +37,24 @@
 // Explanation: This an empty graph, it does not have any nodes.
 
 const cloneGraph = (node) => {
-    // start node
+  let start = node;
+  let queue = [start];
+  let vertexMap = new Map();
 
-    // create a queue with the starting node
+  vertexMap.set(start, new Node(start.val));
 
-    // visited set
+  while (queue.length) {
+    for (let i = 0; i < queue.length; i++) {
+      let current = queue.shift();
 
-    // a map to keep tarck of nodes and neighbors
+      if (!vertexMap[current]) {
+        vertexMap[current] = [];
+      }
 
-    // while queue has nodes
-
-        // iterate the length our queue (which is the number of nodes on that level)
-    
-            // let current = popped node 
-
-            // if it doesnt exist in map add it
-
-            // if poppedNode has neighbors
-
-                // iterate its neighbors
-
-                    // add neighbors to map also
-                
-                    // if neightbor isnt visited add it to the queue
-
-    // return our pairs in an array
-
+      for (let i = 0; i < current.list.length; i++) {
+        vertexMap[current].push(current.list[i]);
+        queue.push(current.list[i]);
+      }
+    }
+  }
 };
