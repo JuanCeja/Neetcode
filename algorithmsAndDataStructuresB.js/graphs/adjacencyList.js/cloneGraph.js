@@ -37,24 +37,5 @@
 // Explanation: This an empty graph, it does not have any nodes.
 
 const cloneGraph = (node) => {
-  let start = node;
-  let queue = [start];
-  let vertexMap = new Map();
-
-  vertexMap.set(start, new Node(start.val));
-
-  while (queue.length) {
-    let currentVertex = queue.shift();
-
-    if(!vertexMap[currentVertex.val]) {
-        vertexMap[currentVertex.val] = [];
-    }
-
-    for(let neighbor of currentVertex.neighbors) {
-        vertexMap[currentVertex].push(neighbor.val);
-        queue.push(neighbor);
-    }
-  }
-
-  return Object.entries(vertexMap);
+  
 };
