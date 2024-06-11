@@ -36,7 +36,26 @@
 // Output: []
 // Explanation: This an empty graph, it does not have any nodes.
 
-const cloneGraph = (node) => {
-  
-};
+const cloneGraph1 = (node) => {
+  let start = node;
+  if (start === null) return null;
 
+  const vertexMap = new Map();
+
+  const queue = [start];
+  vertexMap.set(start, new Node(start.val));
+
+  while (queue.length) {
+    const currentVertex = queue.pop();
+
+    for (const neighbor of currentVertex.neighbors) {
+      if (!vertexMap.has(neighbor)) {
+        vertexMap.set(neighbor, new Node(neighbor.val));
+        queue.push(neighbor);
+      }
+
+      vertexMap.get(currentVertex).neighbors.push(vertexMap.get(neighbor));
+    }
+  }
+  return vertexMap.get(start);
+};
