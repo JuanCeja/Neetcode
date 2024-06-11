@@ -36,12 +36,18 @@
 // Output: []
 // Explanation: This an empty graph, it does not have any nodes.
 
-const cloneGraph1 = (node) => {
+class Node {
+  constructor(val, neighbors = []) {
+    this.val = val;
+    this.neighbors = neighbors;
+  }
+}
+
+const cloneGraph = (node) => {
   let start = node;
   if (start === null) return null;
 
   const vertexMap = new Map();
-
   const queue = [start];
   vertexMap.set(start, new Node(start.val));
 
@@ -59,3 +65,15 @@ const cloneGraph1 = (node) => {
   }
   return vertexMap.get(start);
 };
+
+// Example usage
+const node1 = new Node(1);
+const node2 = new Node(2);
+const node3 = new Node(3);
+
+node1.neighbors = [node2, node3];
+node2.neighbors = [node1, node3];
+node3.neighbors = [node1, node2];
+
+const clonedGraph = cloneGraph(node1);
+console.log(clonedGraph);
