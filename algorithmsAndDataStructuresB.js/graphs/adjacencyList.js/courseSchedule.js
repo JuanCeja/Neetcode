@@ -16,7 +16,6 @@
 // To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
 
 const canFinish = (numCourses, prerequisites) => {
-
   const prerequisitesMap = new Map();
 
   for (let i = 0; i < numCourses; i++) {
@@ -27,8 +26,29 @@ const canFinish = (numCourses, prerequisites) => {
     prerequisitesMap.get(crs).push(pre);
   }
 
-  
+  let visited = new Set();
+
+  const dfs = (course) => {
+    if (visited.has(course)) return false;
+    if (prerequisitesMap[course] === []) return true;
+
+    visited.add(course);
+    for (let pre of prerequisites[course]) {
+      if (!dfs(pre)) return false;
+    }
+    visited.delete(course);
+    prerequisitesMap[course] = [];
+    return true;
+  };
+
+  for (let i = 0; i < numCourses; i++) {
+    if (!dfs(i)) return false;
+  }
+
+  return true;
 };
+
+console.log(canFinish(2, [[1, 0]])); // true
 
 console.log(
   canFinish(2, [
