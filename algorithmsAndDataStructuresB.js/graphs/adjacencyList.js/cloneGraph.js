@@ -63,7 +63,7 @@ const cloneGraph = (node) => {
       vertexMap.get(currentVertex).neighbors.push(vertexMap.get(neighbor));
     }
   }
-  return vertexMap.get(start);
+  return vertexMap;
 };
 
 // Example usage
