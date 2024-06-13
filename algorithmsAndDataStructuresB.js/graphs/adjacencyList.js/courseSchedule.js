@@ -26,18 +26,24 @@ const canFinish = (numCourses, prerequisites) => {
     prerequisitesMap.get(crs).push(pre);
   }
 
-  let visited = new Set();
+  const visited = new Set();
+  const visiting = new Set();
 
   const dfs = (course) => {
-    if (visited.has(course)) return false;
-    if (prerequisitesMap[course] === []) return true;
+    if (visited.has(course)) return true;
+    if (visiting.has(course)) return false;
 
-    visited.add(course);
-    for (let pre of prerequisites[course]) {
+    visiting.add(course);
+
+    for (let pre of prerequisitesMap.get(course)) {
       if (!dfs(pre)) return false;
     }
-    visited.delete(course);
-    prerequisitesMap[course] = [];
+
+    visiting.delete(course);
+    visited.add(course);
+
+    prerequisitesMap.set(course, []);
+
     return true;
   };
 
