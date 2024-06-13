@@ -18,13 +18,13 @@
 // 3. 2 steps + 1 step
 
 const climbStairs = (n) => {
-    // set up array of ways per steps
+  let steps = [0, 1, 2];
 
-    // for loop n times
+  for (let i = 3; i < n + 1; i++) {
+    steps.push(steps[i - 2] + steps[i - 1]);
+  }
 
-        // array[i] = previous 2 steps sum
-
-    // return array at step
+  return steps[n];
 };
 
 console.log(climbStairs(2)); // 2
